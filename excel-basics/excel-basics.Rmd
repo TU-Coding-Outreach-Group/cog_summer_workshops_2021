@@ -1,0 +1,53 @@
+---
+title: "Excel Basics - MiNDS & COG Workshops"
+author: "Haroon Popal & Elizabeth Beard"
+date: "`r format(Sys.Date(), '%B %d, %Y')`"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 1
+    df_print: paged
+    css: !expr here::here("excel-basics/style.css")
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# Quality Control
+
+## Filtering
+
+## Conditional formatting
+
+## Basic formulas
+
+## Data formats
+
+
+# Data Wrangling
+
+## Inserting new data
+
+## Moving data
+copy paste as values
+
+## More filtering
+
+# Data Visualization
+
+## Bar graphs
+
+## Line plots
+
+
+# Importing Data
+
+
+
+
+
+
+
