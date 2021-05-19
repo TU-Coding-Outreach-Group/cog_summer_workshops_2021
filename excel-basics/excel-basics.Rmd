@@ -27,6 +27,15 @@ The behavioral data from the HCP was been cut to only include a subset, and addi
 
 ![](./screenshots/dataset_description.png)
 
+# Importing Data
+
+Data files that labs work with are often stored in text files that end in .csv or .txt instead of in Excel spreadsheets. To open a .csv file in excel:
+
+- Go to **File** > **Open** and browse to the location that contains your data file.
+- Excel starts the Import Text Wizard (see screenshot). When you are done with the steps, click Finish to complete the import operation. For more information about the Import Text Wizard, check [here](https://support.microsoft.com/en-us/office/text-import-wizard-c5b02af6-fda1-4440-899f-f78bafe41857).
+  - Data files are generally comma-delimited or tab-delimited.
+
+![Text Import Wizard](screenshots/text-import.png)
 
 # Quality Control
 Data is often outputted in a messy or inconvenient format. Sometimes we need to clean things up or make sure that our data is correct and/or makes sense. We will go over some quality control steps you can take to make sure your data is ready for analysis.
@@ -77,23 +86,41 @@ Now that we have the entire formula, we can copy this formula for the entire col
 
 
 # Data Wrangling
+A key part of data management and analysis is data wrangling. Data wrangling consists of cleaning, reformatting, and manipulating "raw" data into a desired format for specific analyses or visualization. 
 
 ## Inserting new data
+There are a few different ways to insert new cells, rows, and columns into your data sheet.
+
+- First, select a row, column, or cell *next to* where you would like to insert your data.
+- On the **Home** tab, go to **inser*t**:
+  - ![Insert](screenshots/insert.png)
+  - Select which object you would like to insert (column, cell, row).
+    - Try to avoid inserting individual cells, as it will shift the data!
 
 ## Moving data
-copy paste as values
+To move your data from one spreadsheet to another, or from one area of your spreadsheet to another:
 
-## More filtering
+- Highlight the row or column you want to move.
+- Copy highlighted area (left-click, copy).
+- Highlight the new row or column where you want to paste the data.
+- Paste data into the new row or column.
+  - Note: Be sure to select "Paste as Values" if you are copying data that was manipulated using conditional formatting or formulas, otherwise you will be pasting the formula itself into your new spreadsheet.
+  
+## Sorting data
+To sort your data in a specific order (for example, from oldest to youngest participants):
+
+- On the **Home** tab, go to **Sort & Filter** and select **Custom Sort**
+- ![Custom Sort](screenshots/custom-sort.png)
+  - In the custom sort box, select the column you would like to sort your data by.
+  - Select the order which you would like to sort your data.
+    - These options will vary depending on what Number Format the column is set to (e.g., Dates sort by oldest to newest, numbers sort from smallest to largest, etc.).
+- Note: if you have a column selected already, be sure to select 'Expand the selection' when the sort warning comes up. Otherwise, excel will only sort the column and your data will be shifted!
 
 # Data Visualization
 
 ## Bar graphs
 
 ## Line plots
-
-
-# Importing Data
-
 
 
 
