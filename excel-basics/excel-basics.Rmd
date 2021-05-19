@@ -19,9 +19,10 @@ knitr::opts_chunk$set(echo = TRUE)
 This data is from the Human Connectome Project (HCP). This project acquired a large amount of behavioral and neuroimaging data from each individual, in addition to recruiting a large amount of people (over 1000). In this workshop, we will be playing around with some of the behavioral data. 
 
 The behavioral data from the HCP was been cut to only include a subset, and additional fake data was created to better represent a typical dataset that you might come across in your labs. The first column in the dataset shows the ID for each participant. IDs are used so that participants can be anonymous. The second column includes date of births (DOB). These DOBs are FAKE. It would be against HIPAA rules to share data with DOBs, as DOBs are considered identifiable (i.e. if I know your data of birth, I might be able to find out who you are). Other data that is included in this dataset are:
+
  - Testing date: the date on which participants completed the behavioral testing
  - Gender
- - MMSE: a neurocognitive test that measures
+ - MMSE: a neurocognitive test that measures cognitive impairement
  - PSQI: a behavioral test that measures sleep quality
  - WM_task: a behavioral task on working memory
 
@@ -92,7 +93,7 @@ A key part of data management and analysis is data wrangling. Data wrangling con
 There are a few different ways to insert new cells, rows, and columns into your data sheet.
 
 - First, select a row, column, or cell *next to* where you would like to insert your data.
-- On the **Home** tab, go to **inser*t**:
+- On the **Home** tab, go to **insert**:
   - ![Insert](screenshots/insert.png)
   - Select which object you would like to insert (column, cell, row).
     - Try to avoid inserting individual cells, as it will shift the data!
@@ -117,10 +118,62 @@ To sort your data in a specific order (for example, from oldest to youngest part
 - Note: if you have a column selected already, be sure to select 'Expand the selection' when the sort warning comes up. Otherwise, excel will only sort the column and your data will be shifted!
 
 # Data Visualization
+Data visualization, or creating graphical images using your data, is a critical component of presenting your data to an audience. It's also extremely helpful in understanding your data and interpreting your data.
+
+Different graphs are useful for presenting different types of data. In the final section of this overview, we'll review two different types of graphs that may be of use to you. There are plenty of other types of graphs and charts you might find useful in the future, and a good primer on some charts can be found [here](https://medium.com/analytics-vidhya/data-visualization-guide-for-junior-data-scientists-a384f78ab023).
+
+## Histograms
+A histogram is a graphical display of the distribution of a given measure. It shows us the range and frequencies of different values in our measure. Let's say we wanted to examine the distribution of what time people go to bed in the evening.
+
+- Select the measure (column) you want to visualize. In this example, we'll select the variable "PSQI_BedTime".
+- On the **Insert** tab, select the histogram icon:
+  - ![Select Histogram](screenshots/histogram_select.png)
+- You should see that a histogram has come up on top of your spreadsheet. It doesn't look like it's telling us too much information yet. It should look something like this:
+  - ![Unformatted Histogram](screenshots/histogram_unedited.png)
+- Let's try and edit the histogram to be a bit more clear.
+  - First we'll add more 'bins' to our histogram. This will give us a more detailled visualization of the data distribution. Our unformatted graph only has 4 'bins' and doesn't tell us very much. 
+    - Hover over the 'bins' and left click, then select **Format Axis**.
+    - ![Format Axis](screenshots/histogram_axis.png)
+    - Change the **Bins** option from 'Auto' to 'Number of Bins'.
+    - Set the number of bins to 7.
+  - Doesn't that look better? Let's change the chart title to match the name of our measure so we know what we're looking at.
+    - Doube click where it says "Chart Title"
+    - Replace the text to "PSQI_BedTime"
+    - Great! Let's take a look at our finished graph.
+    - ![Formatted Histogram](screenshots/histogram_final.png)
+    - To save our graph as an image, left click the graph and select **Save as Picture...**
+
+## Scatter plots
+Scatter plots visualize the relationship between two different continuous measures. Let's examine the relationship between sleep quality (PSQI Score) and working memory (WM_Task_Acc).
+
+- Select the measures (columns) you want to visualize. In this example, we'll select the variables "PSQI_Score" and "WM_Task_Acc".
+  - To highlight two column that aren't next to one another, hold down the command key before selecting the second column (for PCs hold the Ctrl key)
+- On the **Insert** tab, select the scatterplot icon:
+  - ![Select Scatterplot](screenshots/scatter_select.png)
+- Your scatterplot should look similar to this. Can you figure out how to add a label to the Y axis?
+  - ![Scatterplot](screenshots/scatter_final.png)
 
 ## Bar graphs
+Bar graphs help visualize averages across different groups or over time. In this example, let's say we want to visually compare sleep quality as indexed by the PSQI between male and female participants.
 
-## Line plots
+- First we need to calculate the average PSQI scores for males and females.
+  - To avoid selecting the wrong columns, let's copy the data we need into a new "sheet" in our excel file.
+    - Create a new sheet by selecting **Insert** > **Sheet** > **New Sheet**.
+    - Copy the 'Gender' and 'PSQI_Score' columns into the new sheet.
+    - In another area of the sheet, we'll calculate the average sleep quality score for men and women separately using the AVERAGEIF.
+      -  For men, use the following formula: 
+        - `=AVERAGEIF(A2:A100, "=M", B2:B100)`
+          - A2:A100 refers to the cells we want to assess (this is our gender column)
+          - "=M" is the assessment criteria (does the values in A2:A100 = M?)
+          - B2:B100 are the cells we want to average if the criteria is met
+        - Can you do the same for women? (*hint*: we want "=W")
+- Now, select averages and labels from the table we created.
+  - ![table](screenshots/bar_graph_table.png)
+- On the **Insert** tab, select the bar graph icon and the graph you want to create. Your graph should look similar to the one we see below.
+  - ![bar graph](screenshots/bar_graph_final.png)
+        
+
+
 
 
 
