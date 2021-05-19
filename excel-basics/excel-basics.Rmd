@@ -15,16 +15,65 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+# Dataset Description
+This data is from the Human Connectome Project (HCP). This project acquired a large amount of behavioral and neuroimaging data from each individual, in addition to recruiting a large amount of people (over 1000). In this workshop, we will be playing around with some of the behavioral data. 
+
+The behavioral data from the HCP was been cut to only include a subset, and additional fake data was created to better represent a typical dataset that you might come across in your labs. The first column in the dataset shows the ID for each participant. IDs are used so that participants can be anonymous. The second column includes date of births (DOB). These DOBs are FAKE. It would be against HIPAA rules to share data with DOBs, as DOBs are considered identifiable (i.e. if I know your data of birth, I might be able to find out who you are). Other data that is included in this dataset are:
+ - Testing date: the date on which participants completed the behavioral testing
+ - Gender
+ - MMSE: a neurocognitive test that measures
+ - PSQI: a behavioral test that measures sleep quality
+ - WM_task: a behavioral task on working memory
+
+![](./screenshots/dataset_description.png)
+
 
 # Quality Control
+Data is often outputted in a messy or inconvenient format. Sometimes we need to clean things up or make sure that our data is correct and/or makes sense. We will go over some quality control steps you can take to make sure your data is ready for analysis.
 
 ## Filtering
+Filtering can be used in excel to select a subset of data based on certain criteria. To enable filters, you can select a column by clicking on the column index (i.e. column "D"). Click on column "D", then "Data" in the menu bar, then "Filter".
 
-## Conditional formatting
+![](screenshots/qc_filter.png)
+Now the "Gender" column has a filter which can be used to select only females ("F"), for example. 
 
-## Basic formulas
+![](screenshots/qc_filter_f.png)
+Notice that all of the rows are filtered so that only the rows that had an "F" in the "Gender" column are included. For the rest of the workshop, we will not need only data from females, so turn off the filter you just created.
+
+You can also enable filters on all of the columns. This can be done by selecting the entire spreadsheet by clicking on the box in the top left corner of the spreadsheet. Once this is done, the entire spreadsheet will be highlighted. Then you can click "Data", and "Filter". Now each column can be filtered. 
+![](screenshots/qc_filter_all.png)
+Multiple columns can be filtered at once. For example, you can create filters to only show a subset of data which includes females with MMSE scores higher than "28".
+![](screenshots/qc_filter_f_mmse.png)
 
 ## Data formats
+Data can come in a variety of formats. We can have text data, numerical data, data that indicates dates, etc. You can check the format of each of your data columns by looking at the "Number Format" box under the "Home" menu. Click on a cell in the "Subject" column and you will see that the format is "General". Click on a cell in the "DOB" column and you will see that the column is in "Date" format. Try changing the format of the "WM_Task_Acc" column to "Number". You will see that the numbers will change to only show two decimal places, although the original values are still saved (see the formula bar when click on a cell). The number of decimals that are displayed can be changed under the "Home" menu in the format section. 
+![](screenshots/qc_format.png)
+
+
+## Conditional formatting
+Conditional formatting can be used to conveniently highlight certain cells. Cells can be manually highlighted, like you would highlight words in an Word document. But with conditional formatting, cells are highlighted based on whatever criteria you set. So if values in certain cells are changed, the highlighting is automatically updated. Try setting up a conditional format to highlight cells in which the "PSQI_Score" is above 5. You can do this by selecting the "PSQI_Score" column, click on "Conditional Formatting" under the "Home" menu, click "Highlight Cells Rules", "Greater Than...". In the box, enter 5, then click okay. Now cells in which there is a value greater than 5, will be highlighted. You can play around with the settings to change the colors, and area which is highlighted. For example, all rows in which there is a value freather than 5  in the "PSQI_Score" column can be highlighted. But in our simple example, try to manually change one of the cells in this column and see if the cell highlighting changes. 
+![](screenshots/qc_condformat.png)
+
+## Basic formulas
+Turn off all filters and conditional formatting (if you are unsure how to do this, just close the spreadsheet without saving and reopen it). One of the most powerful features of excel, and under-used, is formulas. Formulas can be used to do something quickly, which might take much longer if done by hand. One thing we will try is to reverse score some data.
+
+### Reverse scoring
+Imagine that the values in the "PSQI_Comp1" column refer to the following conditions (they do not, but just play along):
+- 0 = bad
+- 1 = neutral
+- 2 = good
+
+The stupid program that outputted our data coded this question in a way that does not make sense for our analysis. Say that we want to calculate that overall quality of someone's sleep. In the 0-2 scale, it doesn't make much sense to have 1 be neutral. It would make more sense to have 0 be neutral, -1 be bad, and 1 be good. That way if we are given an average for all the participants as -0.5, we can easily tell that most people do not sleep well. We can use a formula to turn our 0s to -1s, our 1s to 0s, and our 2s to 1s. Insert a new column next to "PSQI_Comp1". Name the column "PSQI_Comp1_r", where the "r" stands for recoded. In the second cell of that column (row 2), type a formula using if statements to indicate that if a value is equal to X, change it to Y. 
+
+> =IF(G2=1,0)
+
+![](screenshots/formula_if.png)
+But, this formula will only change one of the values. Note that the syntax of this formal allows you to create a stipulation if your condition is false. We can use that to put an if statement within an if statement (i.e. if value is equal to 1, change it to 0, if value is not equal to 1 check if value is equal to 0, etc).
+> =IF(G2=1,0,IF(G2=0,-1,IF(G2=2,1)))
+
+Now that we have the entire formula, we can copy this formula for the entire column, where it will automatically update the relevant cells as it is copied down. This can be done by double-clicking the small square in the bottom right of the cell, once the cell is highlighted.
+![](screenshots/formula_if_all.png)
+
 
 
 # Data Wrangling
