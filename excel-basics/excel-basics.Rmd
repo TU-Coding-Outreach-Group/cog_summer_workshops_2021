@@ -74,6 +74,7 @@ Turn off all filters and conditional formatting (if you are unsure how to do thi
 
 ### Reverse scoring
 Imagine that the values in the "PSQI_Comp1" column refer to the following conditions (they do not, but just play along):
+
 - 0 = bad
 - 1 = neutral
 - 2 = good
@@ -84,6 +85,7 @@ The stupid program that outputted our data coded this question in a way that doe
 
 ![](screenshots/formula_if.png)
 But, this formula will only change one of the values. Note that the syntax of this formal allows you to create a stipulation if your condition is false. We can use that to put an if statement within an if statement (i.e. if value is equal to 1, change it to 0, if value is not equal to 1 check if value is equal to 0, etc).
+
 > =IF(G2=1,0,IF(G2=0,-1,IF(G2=2,1)))
 
 Now that we have the entire formula, we can copy this formula for the entire column, where it will automatically update the relevant cells as it is copied down. This can be done by double-clicking the small square in the bottom right of the cell, once the cell is highlighted.
