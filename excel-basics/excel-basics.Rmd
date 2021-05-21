@@ -1,12 +1,12 @@
 ---
-title: "Excel Basics - MiNDS & COG Workshops"
+title: "Excel Basics - MiNDS & COG Workshop"
 author: "Haroon Popal & Elizabeth Beard"
 date: "`r format(Sys.Date(), '%B %d, %Y')`"
 output:
   html_document:
     toc: true
     toc_float: true
-    toc_depth: 1
+    toc_depth: 2
     df_print: paged
     css: !expr here::here("excel-basics/style.css")
 knit: (function(inputFile, encoding) { 
@@ -33,6 +33,7 @@ The behavioral data from the HCP was been cut to only include a subset, and addi
 
 ![](./screenshots/dataset_description.png)
 
+
 # Importing Data
 
 Data files that labs work with are often stored in text files that end in .csv or .txt instead of in Excel spreadsheets. To open a .csv file in excel:
@@ -42,6 +43,7 @@ Data files that labs work with are often stored in text files that end in .csv o
   - Data files are generally comma-delimited or tab-delimited.
 
 ![Text Import Wizard](screenshots/text-import.png)
+
 
 # Quality Control
 Data is often outputted in a messy or inconvenient format. Sometimes we need to clean things up or make sure that our data is correct and/or makes sense. We will go over some quality control steps you can take to make sure your data is ready for analysis.
@@ -90,6 +92,15 @@ But, this formula will only change one of the values. Note that the syntax of th
 
 Now that we have the entire formula, we can copy this formula for the entire column, where it will automatically update the relevant cells as it is copied down. This can be done by double-clicking the small square in the bottom right of the cell, once the cell is highlighted.
 ![](screenshots/formula_if_all.png)
+
+
+### Aggregating
+Formulas can also be used to do basic operations like addition. In the example we below, we will add up the component PSQI scores using the SUM function. See if you can figure this one out by yourself. Add a new column next to the "PSQI_Score" column, and sum the PSQI component columns for a single row. Then copy that formula down to the rest of the rows. Hint: you can select a range of cells by highlighting them when defining the function.
+
+### Checking your work
+You can now use an if-statement to check whether your summation was done correctly. Tell the if statement to print a "" (blank) if there is a match, and "error" if there is no match. That way, you can easily spot which rows might of had an error. In the example below, I have changed one of the component scores (for example, if I had entered the data incorrectly, or changed the value by accident).
+
+![](screenshots/formula_check.png)
 
 
 
