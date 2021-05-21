@@ -19,3 +19,7 @@ Workshops are on Thursdays in June and July from 12pm to 1pm
 Each workshop will list the necessary pre-requesites in their respective README.md files, but here is some software we recommend you install before the workshops<sup>*</sup>:
 - A command-line shell (i.e. Bash)
 - A text editor you're comfortable with (Atom, VSCode, etc.)
+
+
+## Acknowledgements
+Special thanks to our workshop volunteers who did a lot of the behind-the-scenes work.
