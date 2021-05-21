@@ -5,14 +5,14 @@ The Coding Outreach Group (COG) weekly summer workshops focus on a specific rese
 Workshops are on Thursdays in June and July from 12pm to 1pm
 | Date        | Workshop                             | Presenter  |
 | :-----------: |:------------------------------------:| :-----------:|
-| 06/03/20    | [Jupyter Notebook](https://github.com/TU-Coding-Outreach-Group/cog_summer_workshops_2020/tree/master/jupyter-notebook)                       | Kim Nguyen |
-| 06/10/20    | [Git/Github](https://github.com/TU-Coding-Outreach-Group/cog_summer_workshops_2020/tree/master/git-github)                             | Elizabeth Beard |
-| 06/17/20    | [Psychopy](https://github.com/TU-Coding-Outreach-Group/cog_summer_workshops_2020/tree/master/open-access-datasets)      | Susan Benear |
-| 06/24/20    | [BIDS/Heudiconv/fmriprep](https://github.com/TU-Coding-Outreach-Group/cog_summer_workshops_2020/tree/master/plotting-data-in-r)                     | Elizabeth Beard |
-| 07/01/20    | [Neuroimaging in Python]() | Elizabeth Beard & Haroon Popal |                          
-| 07/08/20    | [Data Visualization in R](https://github.com/TU-Coding-Outreach-Group/cog_summer_workshops_2020/tree/master/psychopy)                               | William Mitchell |
-| 07/15/20    | [Representational Similarity Analysis](https://github.com/TU-Coding-Outreach-Group/cog_summer_workshops_2020/tree/master/javascript-jspsych)                 | Haroon Popal |
-| 07/22/20    | [Using Linux Machines & Owlsnest HPC](https://github.com/TU-Coding-Outreach-Group/cog_summer_workshops_2020/tree/master/python-neuroimaging)                 | Haroon Popal & Katie Jobson |
+| 06/03/20    | [Jupyter Notebook](https://github.com/TU-Coding-Outreach-Group/cog_summer_workshops_2021/tree/master/jupyter-notebook)                       | Kim Nguyen |
+| 06/10/20    | [Git/Github](https://github.com/TU-Coding-Outreach-Group/cog_summer_workshops_2021/tree/master/git-github)                             | Elizabeth Beard |
+| 06/17/20    | [Psychopy](https://github.com/TU-Coding-Outreach-Group/cog_summer_workshops_2021/tree/master/psychopy)      | Susan Benear |
+| 06/24/20    | [BIDS/Heudiconv/fmriprep](https://github.com/TU-Coding-Outreach-Group/cog_summer_workshops_2021/tree/master/bids-heudiconv-fmriprep)                     | Elizabeth Beard |
+| 07/01/20    | [Neuroimaging in Python](https://github.com/TU-Coding-Outreach-Group/cog_summer_workshops_2021/tree/master/neuroimaging-in-python) | Elizabeth Beard & Haroon Popal |                          
+| 07/08/20    | [Data Visualization in R](https://github.com/TU-Coding-Outreach-Group/cog_summer_workshops_2021/tree/master/data-visualization-in-r)                               | William Mitchell |
+| 07/15/20    | [Representational Similarity Analysis](https://github.com/TU-Coding-Outreach-Group/cog_summer_workshops_2021/tree/master/rsa)                 | Haroon Popal |
+| 07/22/20    | [Using Linux Machines & Owlsnest HPC](https://github.com/TU-Coding-Outreach-Group/cog_summer_workshops_2021/tree/master/linux-owlsnest)                 | Haroon Popal & Katie Jobson |
 
 
 ## Getting Started
