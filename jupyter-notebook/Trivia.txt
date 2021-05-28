@@ -1,0 +1,10 @@
+Jupiter Notebook Tutorial
+Trivia Answers
+
+1. Julia, Python, R
+2. MySpace
+3. Jupiter
+4. Horse and Bald Eagle
+5. Print working directory
+6. Chicago
+7. There are two colors! Illuminating (yellow) and Ultimate Gray (gray)
