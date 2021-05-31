@@ -19,9 +19,8 @@ This workshop will be an introduction to [Jupyter](https://jupyter.org/) Noteboo
 ## To-do before the workshop
 1. Download the data.csv and the jupyter_workshop2021.ipynb files in this folder and save these files in one location
 2. If you have Anaconda installed, you should have the required Python packages for this workshop. If you are not using Jupyter through Anaconda, install these packages: pandas, seaborn, matplotlib, numpy, and os.
-    1. You can do this in the Terminal with `conda install [package name]`
+  1. You can do this in the Terminal with `conda install [package name]`
 
 ## Workshop objectives:
 1. Familiarize you to Jupyter Notebook
-2. Start to use Jupyter Notebook for simple data management
-3. and data visualization
+2. Demonstrate how Jupyter Notebook can be used for data management data visualization
