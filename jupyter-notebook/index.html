@@ -14279,7 +14279,7 @@ a.anchor-link {
 </ol>
 <h2 id="Workshop-objectives:">Workshop objectives:<a class="anchor-link" href="#Workshop-objectives:">&#182;</a></h2><ol>
 <li>Familiarize you to Jupyter Notebook</li>
-<li>Demonstrate how Jupyter Notebook can be used for data management data visualization</li>
+<li>Demonstrate how Jupyter Notebook can be used for data management and data visualization</li>
 </ol>
 
 </div>
@@ -14288,10 +14288,10 @@ a.anchor-link {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h1 id="Intro">Intro<a class="anchor-link" href="#Intro">&#182;</a></h1>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
@@ -14303,34 +14303,13 @@ a.anchor-link {
 </div>
 </div>
 
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[13]:</div>
-
-
-
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/d5RUUOYMYEg;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h1 id="I.-Markdowns">I. Markdowns<a class="anchor-link" href="#I.-Markdowns">&#182;</a></h1><p>Markdown cells convert your text into HTML 
 You can treat <em>text</em> in markdowns like you would if you were writing <strong>HTML code</strong>.</p>
 <p>Notebook markdowns are great for adding in text that would be useful for understanding what your code is doing or any text that is necessary for the organization of your Notebook.</p>
+<p><a href="https://www.ibm.com/docs/en/watson-studio-local/1.2.3?topic=notebooks-markdown-jupyter-cheatsheet">Markdown cheatsheet</a></p>
 <h2 id="Exercise-1:-Create-markdown-cells">Exercise 1: Create markdown cells<a class="anchor-link" href="#Exercise-1:-Create-markdown-cells">&#182;</a></h2><h4 id="Instructions:">Instructions:<a class="anchor-link" href="#Instructions:">&#182;</a></h4><ol>
 <li>Add a markdown cell below with answers to the trivia questions </li>
 </ol>
@@ -14681,11 +14660,11 @@ When you restart the kernel and then execute code, the Notebook's line count sta
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># We can cut out a single column like this</span>
 <span class="c1"># What&#39;s really returned here is a pandas series</span>
-<span class="c1">#DF[&#39;Age&#39;]</span>
+<span class="n">DF</span><span class="p">[[</span><span class="s1">&#39;Age&#39;</span><span class="p">]]</span>
 
 <span class="c1"># Or multiple columns by inserting a list of columns [&#39;Age&#39;, &#39;Sex&#39;]</span>
 <span class="c1"># What&#39;s returned in this case is a DataFrame</span>
-<span class="n">DF</span><span class="p">[[</span><span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="s1">&#39;Sex&#39;</span><span class="p">]]</span>
+<span class="c1">#DF[[&#39;Age&#39;, &#39;Sex&#39;]]</span>
 
 <span class="c1"># If you want to save any selection as it&#39;s own list or dataframe </span>
 <span class="c1">#DF2 = DF[[&#39;Age&#39;, &#39;Sex&#39;]]</span>
@@ -14781,6 +14760,7 @@ When you restart the kernel and then execute code, the Notebook's line count sta
 <h2 id="seaborn">seaborn<a class="anchor-link" href="#seaborn">&#182;</a></h2><p>Visualization library built on matplotlib</p>
 <p>Closely integrated with pandas data structures</p>
 <p>More on seaborn: <a href="https://seaborn.pydata.org/">https://seaborn.pydata.org/</a></p>
+<p>More on seaborn <a href="https://seaborn.pydata.org/tutorial/color_palettes.html">color palettes</a> and a <a href="https://gist.github.com/mwaskom/b35f6ebc2d4b340b4f64a4e28e778486">comparison of palettes</a> to see hich are colorblind-friendly.</p>
 
 </div>
 </div>
@@ -15104,10 +15084,10 @@ When you restart the kernel and then execute code, the Notebook's line count sta
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h1 id="Outro">Outro<a class="anchor-link" href="#Outro">&#182;</a></h1>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/6QhH7cFcyoo;controls=0&amp;amp;showinfo=0&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;&#39;</span><span class="p">)</span>
@@ -15116,28 +15096,6 @@ When you restart the kernel and then execute code, the Notebook's line count sta
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[14]:</div>
-
-
-
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/6QhH7cFcyoo;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
-</div>
-
-</div>
-
-</div>
-
 </div>
 
 </div>
