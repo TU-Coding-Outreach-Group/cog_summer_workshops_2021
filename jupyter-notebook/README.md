@@ -26,5 +26,5 @@ This workshop will be an introduction to [Jupyter](https://jupyter.org/) Noteboo
 2. Demonstrate how Jupyter Notebook can be used for data management and data visualization
 
 ## Workshop Materials
-- [Notebook Viewer](https://tu-coding-outreach-group.github.io/cog_summer_workshops_2021/jupyter-notebook/index.html)
+- [Notebook Viewer](https://tu-coding-outreach-group.github.io/cog_summer_workshops_2021/jupyter-notebook/)
 - [Slides](https://github.com/TU-Coding-Outreach-Group/cog_summer_workshops_2021/raw/main/jupyter-notebook/Jupyter_slides.pptx)
