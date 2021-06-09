@@ -9,7 +9,7 @@ __**Content reviewers:**__ John Erardi, Haroon Popal
 
 
 ## Description
-This workshop introduces attendees to the basics of git and GitHub and why it is a useful tool for researchers. This course is largely based on materials from [Elizabeth DuPre](https://emdupre.github.io/git-course/) and [Software Carpentry](https://swcarpentry.github.io/git-novice/).
+This workshop introduces attendees to the basics of git and GitHub, which are version control tools that can be used to store and track your scripts. They can not only save you time in the long run, but present easy ways for you to share code and collaborate with other researchers. This course is largely based on materials from [Elizabeth DuPre](https://emdupre.github.io/git-course/) and [Software Carpentry](https://swcarpentry.github.io/git-novice/).
 
 ## Prerequisites
 1. Basic experience with the unix shell or terminal and navigating file structures (using commands like `ls`, `cd`, `pwd`, `mkdir`)
