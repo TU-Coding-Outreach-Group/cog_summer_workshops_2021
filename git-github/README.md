@@ -25,9 +25,9 @@ This workshop introduces attendees to the basics of git and GitHub and why it is
 2. Demonstrate collaborating using GitHub
 
 ## Workshop Materials
-- [Notebook Viewer]()
-- [Intro Slides]()
-- [Outro Slides]()
+- [Notebook Viewer](https://tu-coding-outreach-group.github.io/cog_summer_workshops_2021/git-github/index.html)
+- [Intro Slides](https://github.com/TU-Coding-Outreach-Group/cog_summer_workshops_2021/blob/main/git-github/git_github_intro-COG2021.pdf)
+- [Outro Slides](https://github.com/TU-Coding-Outreach-Group/cog_summer_workshops_2021/blob/main/git-github/git_github_outro-COG2021.pdf)
 
 ## Outline
 | Topic | Time | Description |
