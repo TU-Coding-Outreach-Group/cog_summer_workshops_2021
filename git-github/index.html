@@ -13079,12 +13079,12 @@ div#notebook {
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Coding-Outreach-Group-Summer-Workshop">Coding Outreach Group Summer Workshop<a class="anchor-link" href="#Coding-Outreach-Group-Summer-Workshop">&#182;</a></h1><h1 id="Git-+-GitHub">Git + GitHub<a class="anchor-link" href="#Git-+-GitHub">&#182;</a></h1><p>06/10/2021</p>
 <p><strong><strong>Content creator:</strong></strong> <a href="https://github.com/elizabethbeard">Elizabeth (Liz) Beard</a></p>
-<p><strong><strong>Content reviewers:</strong></strong> Haroon Popal</p>
+<p><strong><strong>Content reviewers:</strong></strong> John Erardi, Haroon Popal</p>
 <h2 id="Set-Up-&amp;-Prerequisites">Set Up &amp; Prerequisites<a class="anchor-link" href="#Set-Up-&amp;-Prerequisites">&#182;</a></h2><p>Be sure to check out the README for the workshop to make sure you've completed the following steps:</p>
 <ol>
 <li>Familiarized yourself with the unix shell and bash (see prerequisites)</li>
 <li>Installed git on your local computer</li>
-<li>Make a GitHub account</li>
+<li>Make a <a href="https://github.com/">GitHub</a> account</li>
 </ol>
 <h2 id="Description">Description<a class="anchor-link" href="#Description">&#182;</a></h2><p>This workshop introduces attendees to the basics of git and GitHub and why it is a useful tool for researchers. This course is largely based on materials from <a href="https://emdupre.github.io/git-course/">Elizabeth DuPre</a> and <a href="https://swcarpentry.github.io/git-novice/">Software Carpentry</a>.</p>
 <h2 id="Outline">Outline<a class="anchor-link" href="#Outline">&#182;</a></h2><table>
@@ -13124,10 +13124,43 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Intro">Intro<a class="anchor-link" href="#Intro">&#182;</a></h1><p>since this is a bash notebook, it might be <a href="https://stackoverflow.com/questions/11804820/how-can-i-embed-a-youtube-video-on-github-wiki-pages">difficult to embed videos, but this seems like a fine workaround</a>.</p>
+<h1 id="Intro">Intro<a class="anchor-link" href="#Intro">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%HTML</span>
+<span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;560&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;315&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://www.youtube.com/embed/QPxcARTtoZQ&quot;</span> <span class="na">frameborder</span><span class="o">=</span><span class="s">&quot;0&quot;</span> <span class="na">allowfullscreen</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/QPxcARTtoZQ" frameborder="0" allowfullscreen></iframe>
+
+</div>
+
+</div>
 
 </div>
 </div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
@@ -13169,7 +13202,7 @@ git config --global user.email yourname@yourplace.edu
 <div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-bash"><pre><span></span>cat ~/.gitconfig
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cat</span> <span class="o">~/.</span><span class="n">gitconfig</span>
 </pre></div>
 
     </div>
@@ -13220,10 +13253,10 @@ git config --global user.email yourname@yourplace.edu
 <div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-bash"><pre><span></span><span class="nb">cd</span>
-<span class="nb">pwd</span>
-mkdir new-project
-<span class="nb">cd</span> new-project
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cd</span>
+<span class="n">pwd</span>
+<span class="n">mkdir</span> <span class="n">new</span><span class="o">-</span><span class="n">project</span>
+<span class="n">cd</span> <span class="n">new</span><span class="o">-</span><span class="n">project</span>
 </pre></div>
 
     </div>
@@ -13262,7 +13295,7 @@ mkdir new-project
 <div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-bash"><pre><span></span>git init
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">git</span> <span class="n">init</span>
 </pre></div>
 
     </div>
@@ -13301,7 +13334,7 @@ mkdir new-project
 <div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-bash"><pre><span></span>ls -a
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ls</span> <span class="o">-</span><span class="n">a</span>
 </pre></div>
 
     </div>
@@ -13354,7 +13387,7 @@ mkdir new-project
 <div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-bash"><pre><span></span>git status
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">git</span> <span class="n">status</span>
 </pre></div>
 
     </div>
@@ -13411,8 +13444,8 @@ nothing added to commit but untracked files present (use &#34;git add&#34; to tr
 <div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-bash"><pre><span></span>git add README.md
-git status
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">git</span> <span class="n">add</span> <span class="n">README</span><span class="o">.</span><span class="n">md</span>
+<span class="n">git</span> <span class="n">status</span>
 </pre></div>
 
     </div>
@@ -13465,7 +13498,7 @@ Changes to be committed:
 <div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-bash"><pre><span></span>git status
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">git</span> <span class="n">status</span>
 </pre></div>
 
     </div>
@@ -13534,7 +13567,7 @@ nothing to commit, working tree clean
 <div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-bash"><pre><span></span>git push -u origin master
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">git</span> <span class="n">push</span> <span class="o">-</span><span class="n">u</span> <span class="n">origin</span> <span class="n">master</span>
 </pre></div>
 
     </div>
@@ -13597,7 +13630,7 @@ Branch &#39;master&#39; set up to track remote branch &#39;master&#39; from &#39
 <li>Make changes, and push them to your repository on GitHub</li>
 <li><strong>BONUS</strong> Request that the owner of the repository you forked pulls in your changes</li>
 </ol>
-<p><strong>INSERT GIT FORK DIAGRAM HERE </strong></p>
+<p><img src="images/github-fork-diagram.png" width=500 height=500 /></p>
 <h2 id="Is-it-worth-it?-Lemme-Fork-It">Is it worth it? Lemme Fork It<a class="anchor-link" href="#Is-it-worth-it?-Lemme-Fork-It">&#182;</a></h2><p>In today's tutorial, we're going to fork the summer workshop repo so that each week, you'll be able to pull the new material from the COG GitHub to your GitHub and onto your local machine. Ideally, this means no more clicking and downloading files -- we'll do this all through the command line and git.</p>
 <p>The first thing we need to do is fork the COG Summer Workshop Series repository to our own GitHub account.</p>
 <ol>
@@ -13616,7 +13649,7 @@ Branch &#39;master&#39; set up to track remote branch &#39;master&#39; from &#39
 <div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-bash"><pre><span></span><span class="nb">pwd</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pwd</span>
 </pre></div>
 
     </div>
@@ -13647,8 +13680,8 @@ Branch &#39;master&#39; set up to track remote branch &#39;master&#39; from &#39
 <div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-bash"><pre><span></span><span class="nb">cd</span> ~/Documents
-<span class="nb">pwd</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">Documents</span>
+<span class="n">pwd</span>
 </pre></div>
 
     </div>
@@ -13688,7 +13721,7 @@ Branch &#39;master&#39; set up to track remote branch &#39;master&#39; from &#39
 <div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-bash"><pre><span></span>git clone https://github.com/elizabethbeard/cog_summer_workshops_2021.git
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">elizabethbeard</span><span class="o">/</span><span class="n">cog_summer_workshops_2021</span><span class="o">.</span><span class="n">git</span>
 </pre></div>
 
     </div>
@@ -13725,9 +13758,9 @@ Resolving deltas: 100% (133/133), done.
 <div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-bash"><pre><span></span><span class="nb">cd</span> cog_summer_workshops_2021
-<span class="nb">pwd</span>
-ls
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cd</span> <span class="n">cog_summer_workshops_2021</span>
+<span class="n">pwd</span>
+<span class="n">ls</span>
 </pre></div>
 
     </div>
@@ -13787,8 +13820,8 @@ git commit -m <span class="s2">&quot;added workshop notes&quot;</span>
 <div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-bash"><pre><span></span><span class="nb">pwd</span>
-git push origin main
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pwd</span>
+<span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="n">main</span>
 </pre></div>
 
     </div>
@@ -13825,7 +13858,7 @@ To https://github.com/elizabethbeard/cog_summer_workshops_2021.git
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>You may notice that here, we're pushing to <code>main</code> instead of master. This is a <a href="https://www.techrepublic.com/article/github-to-replace-master-with-main-starting-in-october-what-developers-need-to-know/">ecent change</a> in git and GitHub in an effort to reduce unnecessary holdover references to slaver and replace them with more inclusive terms. Be sure to note the change whenever you're referencing tutorials written before October 2020.</p>
+<p>You may notice that here, we're pushing to <code>main</code> instead of master. This is a <a href="https://www.techrepublic.com/article/github-to-replace-master-with-main-starting-in-october-what-developers-need-to-know/">recent change</a> in git and GitHub in an effort to reduce unnecessary holdover references to slaver and replace them with more inclusive terms. Be sure to note the change whenever you're referencing tutorials written before October 2020.</p>
 <h2 id="Pulling-changes-from-a-remote-repository">Pulling changes from a remote repository<a class="anchor-link" href="#Pulling-changes-from-a-remote-repository">&#182;</a></h2><p>We've already updated our <code>origin</code> repo (the repo on our personal GitHub). But let's say a week goes by, and we want to download the materials for Susan's PsychoPy workshop before next Thursday. To do this, we'll pull from the COG or <code>upstream</code> repo.</p>
 <p>Before we can pull from the COG repo into our local repo, we need to make sure that the two are connected.</p>
 
@@ -13837,7 +13870,7 @@ To https://github.com/elizabethbeard/cog_summer_workshops_2021.git
 <div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-bash"><pre><span></span>git remote -v
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">git</span> <span class="n">remote</span> <span class="o">-</span><span class="n">v</span>
 </pre></div>
 
     </div>
@@ -13877,8 +13910,8 @@ origin	https://github.com/elizabethbeard/cog_summer_workshops_2021.git (push)
 <div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-bash"><pre><span></span>git remote add upstream https://github.com/TU-Coding-Outreach-Group/cog_summer_workshops_2021
-git remote -v
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">git</span> <span class="n">remote</span> <span class="n">add</span> <span class="n">upstream</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">TU</span><span class="o">-</span><span class="n">Coding</span><span class="o">-</span><span class="n">Outreach</span><span class="o">-</span><span class="n">Group</span><span class="o">/</span><span class="n">cog_summer_workshops_2021</span>
+<span class="n">git</span> <span class="n">remote</span> <span class="o">-</span><span class="n">v</span>
 </pre></div>
 
     </div>
@@ -13931,7 +13964,7 @@ upstream	https://github.com/TU-Coding-Outreach-Group/cog_summer_workshops_2021 (
 <ol>
 <li>Make any changes you want to contribute to the <code>upstream</code> repo, then <code>commit</code> and <code>push</code> them to your GitHub repository (<code>origin</code>). </li>
 <li>Go to your GitHub account and in the forked repository find the green button for creating Pull Requests. Click it and follow the instructions.
-Insert github-pull_request_screenshot.png</li>
+<img src="images/github-pull_Request-screenshot.png" width=700 height=400 /></li>
 <li>The owner(s) of the original repository will get a notification that someone created a pull request - the request can be reviewed, commented, and merged in (or not) via GitHub.</li>
 </ol>
 <p>Here is some advice from <a href="https://emdupre.github.io/git-course/06-pull-requests/">Elizabeth DuPre for submitting Pull Requests</a>:</p>
@@ -13960,20 +13993,40 @@ Insert github-pull_request_screenshot.png</li>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Implementations">Implementations<a class="anchor-link" href="#Implementations">&#182;</a></h1><p>insert implementation video here</p>
-
+<h1 id="Implementations">Implementations<a class="anchor-link" href="#Implementations">&#182;</a></h1>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-bash"><pre><span></span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%HTML</span>
+<span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;560&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;315&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://www.youtube.com/embed/w_iOjU53gbk&quot;</span> <span class="na">frameborder</span><span class="o">=</span><span class="s">&quot;0&quot;</span> <span class="na">allowfullscreen</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/w_iOjU53gbk" frameborder="0" allowfullscreen></iframe>
+
+</div>
+
+</div>
+
 </div>
 </div>
 
