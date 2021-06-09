@@ -27,3 +27,4 @@ For PC users, you can set up the bash command line and git by installing [this p
 
 ## Acknowledgements
 Special thanks to our workshop volunteers who did a lot of the behind-the-scenes work.
+**John Erardi**: video editing
