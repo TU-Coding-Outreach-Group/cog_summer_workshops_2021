@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>git_github_workshop2021</title>
+<title>jupyter_workshop2021</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13077,46 +13077,28 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Coding-Outreach-Group-Summer-Workshop">Coding Outreach Group Summer Workshop<a class="anchor-link" href="#Coding-Outreach-Group-Summer-Workshop">&#182;</a></h1><h1 id="Git-+-GitHub">Git + GitHub<a class="anchor-link" href="#Git-+-GitHub">&#182;</a></h1><p>06/10/2021</p>
-<p><strong><strong>Content creator:</strong></strong> <a href="https://github.com/elizabethbeard">Elizabeth (Liz) Beard</a></p>
-<p><strong><strong>Content reviewers:</strong></strong> John Erardi, Haroon Popal</p>
-<h2 id="Set-Up-&amp;-Prerequisites">Set Up &amp; Prerequisites<a class="anchor-link" href="#Set-Up-&amp;-Prerequisites">&#182;</a></h2><p>Be sure to check out the README for the workshop to make sure you've completed the following steps:</p>
-<ol>
-<li>Familiarized yourself with the unix shell and bash (see prerequisites)</li>
-<li>Installed git on your local computer</li>
-<li>Make a <a href="https://github.com/">GitHub</a> account</li>
+<h1 id="Coding-Outreach-Group-Summer-Workshop">Coding Outreach Group Summer Workshop<a class="anchor-link" href="#Coding-Outreach-Group-Summer-Workshop">&#182;</a></h1><h1 id="Jupyter-Notebook">Jupyter Notebook<a class="anchor-link" href="#Jupyter-Notebook">&#182;</a></h1><p>06/03/2021</p>
+<p><strong><strong>Content creator:</strong></strong> Kim Nguyen</p>
+<p><strong><strong>Content reviewers:</strong></strong> Haroon Popal</p>
+<h2 id="Description">Description<a class="anchor-link" href="#Description">&#182;</a></h2><p>This workshop will be an introduction to <a href="https://jupyter.org/">Jupyter</a> Notebooks, an open-source web application that allows you to create and share documents that contain live code, equations, visualizations, and narrative texts.</p>
+<h2 id="Prerequisites">Prerequisites<a class="anchor-link" href="#Prerequisites">&#182;</a></h2><ol>
+<li>Basic knowledge of python</li>
+<li>A computer with Jupyter installed<ol>
+<li>You can install Jupyter by <a href="https://jupyter.org/install">itself</a>, or you can install <a href="https://www.anaconda.com/distribution/">Anaconda</a> (recommended), which includes Jupyter, Python (with the spyder IDE), and Rstudio</li>
 </ol>
-<h2 id="Description">Description<a class="anchor-link" href="#Description">&#182;</a></h2><p>This workshop introduces attendees to the basics of git and GitHub and why it is a useful tool for researchers. This course is largely based on materials from <a href="https://emdupre.github.io/git-course/">Elizabeth DuPre</a> and <a href="https://swcarpentry.github.io/git-novice/">Software Carpentry</a>.</p>
-<h2 id="Outline">Outline<a class="anchor-link" href="#Outline">&#182;</a></h2><table>
-<thead><tr>
-<th>Topic</th>
-<th>Time</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Intro</td>
-<td>Why do I need version control? What is git? What is GitHub?</td>
-<td>5 min</td>
-</tr>
-<tr>
-<td>Tutorial 1</td>
-<td>set up git, create a local repo, commit changes, add files to GitHub repo</td>
-<td>20 min</td>
-</tr>
-<tr>
-<td>Tutorial 2</td>
-<td>forking and cloning a repo, updating a local repo with changes from the remote repo, <strong>BONUS</strong>: pull requests</td>
-<td>25 min</td>
-</tr>
-<tr>
-<td>Examples</td>
-<td>collaborating, open science, resource sharing, exposure</td>
-<td>5 min </td>
-</tr>
-</tbody>
-</table>
+</li>
+</ol>
+<h2 id="To-do-before-the-workshop">To-do before the workshop<a class="anchor-link" href="#To-do-before-the-workshop">&#182;</a></h2><ol>
+<li>Download the data.csv and the jupyter_workshop2021.ipynb files in this folder and save these files in one location</li>
+<li>If you have Anaconda installed, you should have the required Python packages for this workshop. If you are not using Jupyter through Anaconda, install these packages: pandas, seaborn, matplotlib, numpy, and os.<ol>
+<li>You can do this in the Terminal with <code>conda install [package name]</code></li>
+</ol>
+</li>
+</ol>
+<h2 id="Workshop-objectives:">Workshop objectives:<a class="anchor-link" href="#Workshop-objectives:">&#182;</a></h2><ol>
+<li>Familiarize you to Jupyter Notebook</li>
+<li>Demonstrate how Jupyter Notebook can be used for data management and data visualization</li>
+</ol>
 
 </div>
 </div>
@@ -13130,11 +13112,848 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+<span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/d5RUUOYMYEg;controls=0&amp;amp;showinfo=0&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[3]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/d5RUUOYMYEg;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="I.-Markdowns">I. Markdowns<a class="anchor-link" href="#I.-Markdowns">&#182;</a></h1><p>Markdown cells convert your text into HTML 
+You can treat <em>text</em> in markdowns like you would if you were writing <strong>HTML code</strong>.</p>
+<p>Notebook markdowns are great for adding in text that would be useful for understanding what your code is doing or any text that is necessary for the organization of your Notebook.</p>
+<p><a href="https://www.ibm.com/docs/en/watson-studio-local/1.2.3?topic=notebooks-markdown-jupyter-cheatsheet">Markdown cheatsheet</a></p>
+<h2 id="Exercise-1:-Create-markdown-cells">Exercise 1: Create markdown cells<a class="anchor-link" href="#Exercise-1:-Create-markdown-cells">&#182;</a></h2><h4 id="Instructions:">Instructions:<a class="anchor-link" href="#Instructions:">&#182;</a></h4><ol>
+<li>Add a markdown cell below with answers to the trivia questions </li>
+</ol>
+<h3 id="Trivia-Question-1!">Trivia Question 1!<a class="anchor-link" href="#Trivia-Question-1!">&#182;</a></h3><p>What three programming languages do Jupyter Notebooks support? Hint: ”Jupyter” is a mashup of all three!</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Trivia-Question-2!">Trivia Question 2!<a class="anchor-link" href="#Trivia-Question-2!">&#182;</a></h3><p>What social media platform allowed you to edit HTML code to customize your page?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="II.-Code-Cells">II. Code Cells<a class="anchor-link" href="#II.-Code-Cells">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># This is a cell</span>
+<span class="c1"># You will put your code in cells (Python or R)</span>
+<span class="c1"># To include in-cell text that is not code, include a # at the start of the line</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;hi!&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Exercise-2:-Printing-answers">Exercise 2: Printing answers<a class="anchor-link" href="#Exercise-2:-Printing-answers">&#182;</a></h2><h4 id="Instructions:">Instructions:<a class="anchor-link" href="#Instructions:">&#182;</a></h4><ol>
+<li>Add a code cell below that will print this trivia answer</li>
+</ol>
+<h3 id="Trivia-Question-3!">Trivia Question 3!<a class="anchor-link" href="#Trivia-Question-3!">&#182;</a></h3><p>What is the largest planet in our solar system?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="III.-Restarting-the-Kernel">III. Restarting the Kernel<a class="anchor-link" href="#III.-Restarting-the-Kernel">&#182;</a></h1><p>Hm, I think I want to start my code over, let's restart and clear the kernel
+Go to <strong>Kernel</strong> &gt; <strong>Restart &amp; Clear Output</strong></p>
+<p>Notice now that the ln [ ] is empty and your code cells no longer have output. Restarting the kernel will restart your Notebook session.</p>
+<p>You may exit your Notebook without restarting &amp; clearing ouput and come back to the Notebook as it was- ouput and all.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now add a code cell below that will print this trivia answer</p>
+<h3 id="Trivia-question-4!">Trivia question 4!<a class="anchor-link" href="#Trivia-question-4!">&#182;</a></h3><p>What two animals are on the Pennsylvania flag?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>See how the line number for the cell you just created is now 1? (ln [1])
+When you restart the kernel and then execute code, the Notebook's line count starts over.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="IV.-Data-Management">IV. Data Management<a class="anchor-link" href="#IV.-Data-Management">&#182;</a></h1><h2 id="Setting-your-working-directory">Setting your working directory<a class="anchor-link" href="#Setting-your-working-directory">&#182;</a></h2><p>This isn't necessary today if this Notebook is in the same folder/directory as the data.csv. But if you need to work with data from multiple directories and don't want a separate Notebook for each directory, this is useful.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Mac users can use command line within the notebooks, just make sure the command is in its own cell</span>
+<span class="c1"># Otherwise, the notebook will treat the cell as a Python code </span>
+<span class="n">pwd</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pwd</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ls</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Exercise-3:-Change-directories">Exercise 3: Change directories<a class="anchor-link" href="#Exercise-3:-Change-directories">&#182;</a></h2><h4 id="Instructions:">Instructions:<a class="anchor-link" href="#Instructions:">&#182;</a></h4><ol>
+<li>Change directories to where the data.csv file for this workshop is located</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Windows users can import os to change the working directory</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;C:\Users\youruser\folder\folder\etc&quot;</span><span class="p">)</span>
+<span class="c1"># Mac users can also use os.chdir in this format: os.chdir(&#39;/Users/KimNguyen/Desktop/Jupyter_Workshop&#39;)</span>
+
+<span class="c1"># Get current working directory</span>
+<span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># List everything in current directory</span>
+<span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Trivia-Question-5!">Trivia Question 5!<a class="anchor-link" href="#Trivia-Question-5!">&#182;</a></h3><p>What does "pwd" stand for?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Introduction-to-Pandas">Introduction to Pandas<a class="anchor-link" href="#Introduction-to-Pandas">&#182;</a></h1><p>Pandas is a Python data organization and analysis software.</p>
+<p>It uses a DataFrame object for data manipulation with integrated indexing.</p>
+<p>Note that Python is 0-indexed, meaning the first element is 0 and the second is 1.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Import the pandas and numpy modules</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Importing-and-viewing-your-data">Importing and viewing your data<a class="anchor-link" href="#Importing-and-viewing-your-data">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Reading in your data file</span>
+<span class="n">data</span> <span class="o">=</span> <span class="s2">&quot;data.csv&quot;</span>
+
+<span class="c1"># Convert the data file from a csv to a pandas dataframe</span>
+<span class="n">DF</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">index_col</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Some ways you can view your data to check that everything was imported and converted correctly</span>
+
+<span class="c1"># Prints the first 5 rows of the dataframe, you can also insert a specific number of rows in the parentheses DF.head(2)</span>
+<span class="n">DF</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># How will the dataframe change if we ran this line instead: DF = pd.read_csv(mapreading, header = 1, index_col = 1)?</span>
+<span class="c1"># Test it out here!</span>
+<span class="n">DF</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">index_col</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">DF</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># But remember to reset to the correct dataframe format</span>
+<span class="n">DF</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">index_col</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">DF</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Gives the dimensions of your dataframe (#rows, #columns)</span>
+<span class="n">DF</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Gives the types of data of the columns</span>
+<span class="n">DF</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># If you put all three previous lines together, you have to use print() for each, otherwise, the notebook will only print the last line.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">DF</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">DF</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">DF</span><span class="o">.</span><span class="n">dtypes</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Selecting-specific-data">Selecting specific data<a class="anchor-link" href="#Selecting-specific-data">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># We can cut out a single column like this</span>
+<span class="c1"># What&#39;s really returned here is a pandas series</span>
+<span class="n">DF</span><span class="p">[[</span><span class="s1">&#39;Age&#39;</span><span class="p">]]</span>
+
+<span class="c1"># Or multiple columns by inserting a list of columns [&#39;Age&#39;, &#39;Sex&#39;]</span>
+<span class="c1"># What&#39;s returned in this case is a DataFrame</span>
+<span class="c1">#DF[[&#39;Age&#39;, &#39;Sex&#39;]]</span>
+
+<span class="c1"># If you want to save any selection as it&#39;s own list or dataframe </span>
+<span class="c1">#DF2 = DF[[&#39;Age&#39;, &#39;Sex&#39;]]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># We can also select specific rows using .loc. </span>
+<span class="c1"># For this dataframe, this will give us specific participant numbered rows</span>
+<span class="n">DF</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># We can specify row position and column position by passing in two arguments</span>
+<span class="c1">#DF.loc[1, &#39;Age&#39;]</span>
+
+<span class="c1"># Or multiple row and columns!</span>
+<span class="n">DF</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="s1">&#39;Sex&#39;</span><span class="p">]]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Getting stats of specific columns</span>
+<span class="n">DF</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+
+<span class="c1"># Getting stats of all columns, this will help later on when you graph the data</span>
+<span class="n">DF</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># If you make changes to your dataframe or create a new dataframe, you can save it as a csv/excel/text file</span>
+<span class="n">DF</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;new.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="c1"># DF.to_excel(&#39;new.xls&#39;, index=False)</span>
+<span class="c1"># DF.to_csv(&#39;new.txt&#39;, index=False)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>More on Pandas: <a href="https://pandas.pydata.org/pandas-docs/version/0.15/tutorials.html">https://pandas.pydata.org/pandas-docs/version/0.15/tutorials.html</a></p>
+<h3 id="Trivia-Question-6!">Trivia Question 6!<a class="anchor-link" href="#Trivia-Question-6!">&#182;</a></h3><p>What US city got the first panda in their zoo in 1936?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="VI.-Data-Visualization">VI. Data Visualization<a class="anchor-link" href="#VI.-Data-Visualization">&#182;</a></h1><h2 id="matplotlib">matplotlib<a class="anchor-link" href="#matplotlib">&#182;</a></h2><p>Plotting library for Python and its extension NumPy</p>
+<p>Very similar to the MATLAB interface, but free</p>
+<p>More on matplotlib: <a href="https://matplotlib.org/gallery/index.html">https://matplotlib.org/gallery/index.html</a></p>
+<h2 id="seaborn">seaborn<a class="anchor-link" href="#seaborn">&#182;</a></h2><p>Visualization library built on matplotlib</p>
+<p>Closely integrated with pandas data structures</p>
+<p>More on seaborn: <a href="https://seaborn.pydata.org/">https://seaborn.pydata.org/</a></p>
+<p>More on seaborn <a href="https://seaborn.pydata.org/tutorial/color_palettes.html">color palettes</a> and a <a href="https://gist.github.com/mwaskom/b35f6ebc2d4b340b4f64a4e28e778486">comparison of palettes</a> to see which are colorblind-friendly.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Trivia-Question-7!">Trivia Question 7!<a class="anchor-link" href="#Trivia-Question-7!">&#182;</a></h3><p>What is different about the Pantone 2021 color of the year?</p>
+<p>Bonus! What is the 2021 color of the year (or general color family)?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Import seaborn and matplotlib modules for data visualization </span>
+<span class="c1"># We can combine these two</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Colormap values: Accent, Accent_r, Blues, Blues_r, BrBG, BrBG_r, BuGn, BuGn_r, BuPu, BuPu_r, CMRmap, CMRmap_r, Dark2, Dark2_r, GnBu, GnBu_r, Greens, Greens_r, Greys, Greys_r, OrRd, OrRd_r, Oranges, Oranges_r, PRGn, PRGn_r, Paired, Paired_r, Pastel1, Pastel1_r, Pastel2, Pastel2_r, PiYG, PiYG_r, PuBu, PuBuGn, PuBuGn_r, PuBu_r, PuOr, PuOr_r, PuRd, PuRd_r, Purples, Purples_r, RdBu, RdBu_r, RdGy, RdGy_r, RdPu, RdPu_r, RdYlBu, RdYlBu_r, RdYlGn, RdYlGn_r, Reds, Reds_r, Set1, Set1_r, Set2, Set2_r, Set3, Set3_r, Spectral, Spectral_r, Wistia, Wistia_r, YlGn, YlGnBu, YlGnBu_r, YlGn_r, YlOrBr, YlOrBr_r, YlOrRd, YlOrRd_r, afmhot, afmhot_r, autumn, autumn_r, binary, binary_r, bone, bone_r, brg, brg_r, bwr, bwr_r, cividis, cividis_r, cool, cool_r, coolwarm, coolwarm_r, copper, copper_r, cubehelix, cubehelix_r, flag, flag_r, gist_earth, gist_earth_r, gist_gray, gist_gray_r, gist_heat, gist_heat_r, gist_ncar, gist_ncar_r, gist_rainbow, gist_rainbow_r, gist_stern, gist_stern_r, gist_yarg, gist_yarg_r, gnuplot, gnuplot2, gnuplot2_r, gnuplot_r, gray, gray_r, hot, hot_r, hsv, hsv_r, icefire, icefire_r, inferno, inferno_r, jet, jet_r, magma, magma_r, mako, mako_r, nipy_spectral, nipy_spectral_r, ocean, ocean_r, pink, pink_r, plasma, plasma_r, prism, prism_r, rainbow, rainbow_r, rocket, rocket_r, seismic, seismic_r, spring, spring_r, summer, summer_r, tab10, tab10_r, tab20, tab20_r, tab20b, tab20b_r, tab20c, tab20c_r, terrain, terrain_r, viridis, viridis_r, vlag, vlag_r, winter, winter_r</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Set seaborn context. </span>
+<span class="c1"># This affects things like the size of the labels, lines, and other elements of the plot, but not the overall style. </span>
+<span class="c1"># The base context is “notebook”, and the other contexts are “paper”, “talk”, and “poster”</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_context</span><span class="p">(</span><span class="s2">&quot;paper&quot;</span><span class="p">,</span> <span class="n">font_scale</span> <span class="o">=</span> <span class="mf">1.5</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>More about set context: <a href="https://seaborn.pydata.org/generated/seaborn.set_context.html">https://seaborn.pydata.org/generated/seaborn.set_context.html</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Scatterplots">Scatterplots<a class="anchor-link" href="#Scatterplots">&#182;</a></h2><p>Visualizing two continuous variables and adding in grouping dimensions</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># A good ole vanilla scatterplot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">bottom</span><span class="o">=</span><span class="mf">0.15</span><span class="p">)</span> <span class="c1">#adds room to the x-axis label to not cut off the text</span>
+<span class="n">plot1</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;Age&quot;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s2">&quot;Composite (z)&quot;</span><span class="p">,</span> <span class="n">palette</span> <span class="o">=</span> <span class="s1">&#39;Set2&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">DF</span><span class="p">)</span>
+<span class="c1"># Saving the graph to your current directory, the higher the dpi value, the longer it&#39;ll take for the cell to run </span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;plot1.png&quot;</span><span class="p">,</span><span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># You can also plot data by groups using hue = &quot;&quot;</span>
+<span class="n">plot2</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;Preposition&quot;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s2">&quot;Composite (z)&quot;</span><span class="p">,</span> <span class="n">palette</span> <span class="o">=</span> <span class="s1">&#39;Set2&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">DF</span><span class="p">,</span> <span class="n">hue</span> <span class="o">=</span> <span class="s2">&quot;Age Bins&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.05</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">loc</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">borderaxespad</span><span class="o">=</span><span class="mf">0.</span><span class="p">)</span>  <span class="c1"># moves the legend outside the plot</span>
+<span class="c1"># The saved png will cutoff anything outside the plot (legend), so it might be better to take a screenshot. I&#39;ve yet to learn how to deal with this.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;plot2.png&quot;</span><span class="p">,</span><span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span><span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Scatterplots by two grouping dimensions (Age Bins and Sex)</span>
+<span class="n">plot3</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">DF</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;Age Bins&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;Sex&quot;</span><span class="p">,</span> <span class="n">palette</span> <span class="o">=</span> <span class="s2">&quot;Set2&quot;</span><span class="p">)</span>
+<span class="n">plot3</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">,</span> <span class="s2">&quot;Preposition&quot;</span><span class="p">,</span> <span class="s2">&quot;Composite (z)&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plot3</span><span class="o">.</span><span class="n">add_legend</span><span class="p">();</span>
+<span class="n">plot3</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;plot3.png&quot;</span><span class="p">,</span><span class="n">dpi</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span><span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Scatterplots with bivariate distributions</span>
+<span class="n">plot4</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;Preposition&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Composite (z)&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">DF</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;reg&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;plot4.png&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span><span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+
+<span class="c1"># Hexbin plot: A really cool plot that also includes distributions, but it works best with large datasets</span>
+<span class="k">with</span> <span class="n">sns</span><span class="o">.</span><span class="n">axes_style</span><span class="p">(</span><span class="s2">&quot;white&quot;</span><span class="p">):</span>
+    <span class="n">plot5</span><span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span> <span class="s2">&quot;Preposition&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span> <span class="s2">&quot;Composite (z)&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;hex&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;Pink&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">DF</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;plot5.png&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span><span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>More about scatterplot: <a href="https://seaborn.pydata.org/generated/seaborn.scatterplot.html">https://seaborn.pydata.org/generated/seaborn.scatterplot.html</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Regression-Plots">Regression Plots<a class="anchor-link" href="#Regression-Plots">&#182;</a></h2><p>Plotting data with regression model fit</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Bivariate regression plot</span>
+<span class="c1"># x and y are data variables, palette is your color scheme, data is your dataset (usually a dataframe), and aspect is the multiplier for the x-axis length</span>
+<span class="n">plot6</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;Age&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Composite (z)&quot;</span><span class="p">,</span> <span class="n">palette</span> <span class="o">=</span> <span class="s1">&#39;Set2&#39;</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">DF</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;Sex&quot;</span><span class="p">)</span> 
+
+<span class="c1"># Optional: setting specific axes limits. </span>
+<span class="c1"># You can check your .describe() output from earlier to see the min and max of your variables</span>
+<span class="n">axes</span> <span class="o">=</span> <span class="n">plot6</span><span class="o">.</span><span class="n">axes</span> 
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>  <span class="c1"># set graph y-axis limits</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">25</span><span class="p">)</span>  <span class="c1"># set graph x-axis limits</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;plot6.png&quot;</span><span class="p">,</span><span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span><span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Regression plot by two groups (Age Bins and Sex)</span>
+<span class="n">plot7</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;Preposition&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Composite (z)&quot;</span><span class="p">,</span> <span class="n">palette</span> <span class="o">=</span> <span class="s1">&#39;Set2&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">DF</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">hue</span> <span class="o">=</span> <span class="s2">&quot;Age Bins&quot;</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="s2">&quot;Sex&quot;</span><span class="p">)</span> 
+<span class="n">axes</span> <span class="o">=</span> <span class="n">plot7</span><span class="o">.</span><span class="n">axes</span> 
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;plot7.png&quot;</span><span class="p">,</span><span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span><span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>More about lm plot: <a href="https://seaborn.pydata.org/generated/seaborn.lmplot.html">https://seaborn.pydata.org/generated/seaborn.lmplot.html</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Bar-Plots">Bar Plots<a class="anchor-link" href="#Bar-Plots">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Regular bar plot with capped 95% confidence interval bars</span>
+<span class="n">plot8</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;Age Bins&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Composite (z)&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">DF</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span> <span class="s2">&quot;Set2&quot;</span><span class="p">,</span><span class="n">ci</span><span class="o">=</span><span class="mi">95</span><span class="p">,</span> <span class="n">capsize</span><span class="o">=</span> <span class="o">.</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;plot8.png&quot;</span><span class="p">,</span><span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span><span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Barplot with individual datapoints</span>
+<span class="c1"># order = [] takes in a list of the specified categorical order</span>
+<span class="n">plot9</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;Age Bins&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Composite (z)&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">DF</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;Pastel2&quot;</span><span class="p">)</span>
+<span class="n">plot9</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;Age Bins&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Composite (z)&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">DF</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span> <span class="s2">&quot;Set2&quot;</span><span class="p">,</span><span class="n">ci</span><span class="o">=</span><span class="mi">95</span><span class="p">,</span> <span class="n">capsize</span><span class="o">=.</span><span class="mi">15</span><span class="p">,</span> <span class="n">order</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;6-7 years&quot;</span><span class="p">,</span><span class="s2">&quot;8-9 years&quot;</span><span class="p">,</span><span class="s2">&quot;10-12 years&quot;</span><span class="p">,</span><span class="s2">&quot;Adult&quot;</span><span class="p">])</span>
+<span class="n">plot9</span><span class="o">.</span><span class="n">set_axis_labels</span><span class="p">(</span><span class="s2">&quot;Age Bins&quot;</span><span class="p">,</span> <span class="s2">&quot;Composite (z)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;plot9.png&quot;</span><span class="p">,</span><span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span><span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Bar plots across two grouping dimensions</span>
+<span class="k">with</span> <span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;Set2&quot;</span><span class="p">):</span>
+    <span class="n">plot10</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">DF</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;Sex&quot;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+    <span class="n">plot10</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">,</span> <span class="s2">&quot;Age Bins&quot;</span><span class="p">,</span> <span class="s2">&quot;Composite (z)&quot;</span><span class="p">,</span> <span class="n">ci</span><span class="o">=</span><span class="mi">95</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;plot10.png&quot;</span><span class="p">,</span><span class="n">dpi</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span><span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>More on bar plots: <a href="https://seaborn.pydata.org/generated/seaborn.barplot.html">https://seaborn.pydata.org/generated/seaborn.barplot.html</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>More on multi-plot grids: <a href="https://seaborn.pydata.org/tutorial/axis_grids.html">https://seaborn.pydata.org/tutorial/axis_grids.html</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Other-Cool-Plots">Other Cool Plots<a class="anchor-link" href="#Other-Cool-Plots">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Violin plots</span>
+<span class="n">plot11</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;Age Bins&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Composite (z)&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">DF</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;Set2&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;Sex&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.05</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">loc</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">borderaxespad</span><span class="o">=</span><span class="mf">0.</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;plot11.png&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span><span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>  <span class="c1"># again, this will cutoff the legend that&#39;s outside the plot</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>More about violin plots: <a href="https://seaborn.pydata.org/generated/seaborn.violinplot.html">https://seaborn.pydata.org/generated/seaborn.violinplot.html</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Heatmaps, very useful for RSA or correlation comparison visualization</span>
+<span class="n">fake_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">51</span><span class="p">,</span> <span class="mi">51</span><span class="p">)</span>
+<span class="n">plot12</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">fake_data</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Blues&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;plot12.png&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span><span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>More on heatmaps: <a href="https://seaborn.pydata.org/generated/seaborn.heatmap.html">https://seaborn.pydata.org/generated/seaborn.heatmap.html</a></p>
+<p>More on clustermaps: <a href="https://seaborn.pydata.org/generated/seaborn.clustermap.html#seaborn.clustermap">https://seaborn.pydata.org/generated/seaborn.clustermap.html#seaborn.clustermap</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Outro">Outro<a class="anchor-link" href="#Outro">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%HTML</span>
-<span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;560&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;315&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://www.youtube.com/embed/QPxcARTtoZQ&quot;</span> <span class="na">frameborder</span><span class="o">=</span><span class="s">&quot;0&quot;</span> <span class="na">allowfullscreen</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/6QhH7cFcyoo;controls=0&amp;amp;showinfo=0&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13147,882 +13966,12 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt"></div>
+    <div class="prompt output_prompt">Out[2]:</div>
 
 
 
-<div class="output_html rendered_html output_subarea ">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/QPxcARTtoZQ" frameborder="0" allowfullscreen></iframe>
-
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="1.-Getting-Started-with-git">1. Getting Started with git<a class="anchor-link" href="#1.-Getting-Started-with-git">&#182;</a></h1><p>Version control in git is centered around a <em>repository</em> which holds your directories and files. For this workshop, we'll be using the command line interface or terminal to work with git. While there are other GUIs for using git, there are a number of benefits to using the command line:</p>
-<ul>
-<li>you develop better understanding of how git commands work</li>
-<li>you develop the ability to use git on any computer with bash or linux</li>
-<li>learning various GUIs will be easier since you know the terminology </li>
-</ul>
-<h2 id="Setting-up-git-on-our-local-machine">Setting up git on our local machine<a class="anchor-link" href="#Setting-up-git-on-our-local-machine">&#182;</a></h2><h3 id="Tell-git-who-you-are">Tell git who you are<a class="anchor-link" href="#Tell-git-who-you-are">&#182;</a></h3><p>Git records information not only about the changes to files you make, but also <em>who</em> made those changes -- this makes it even more helpful for collaborating! For git to know who is making changes on this machine, we need to tell git about who we are.</p>
-<ul>
-<li><em>note</em>: be sure to use the same email address you used to create your GitHub account.</li>
-</ul>
-<div class="highlight"><pre><span></span>git config --global user.name <span class="s2">&quot;Your Name&quot;</span>        <span class="c1"># put quotation marks around your name</span>
-git config --global user.email yourname@yourplace.edu
-</pre></div>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Set-a-default-editor">Set a default editor<a class="anchor-link" href="#Set-a-default-editor">&#182;</a></h3><p>When working with Git we will often need to provide some short but useful information. In order to enter this information, we need an editor. We’ll now tell Git which editor we want to be the default (i.e. the one that Git will bring by default whenever it wants us to provide some information).</p>
-<p>You can choose any editor available on your system. For this tutorial we'll be using nano (the default in mac and linux systems). There are lots of other text editors available, if you want to <a href="https://swcarpentry.github.io/git-novice/02-setup/index.html">check some out here</a>.</p>
-<div class="highlight"><pre><span></span>git config --global core.editor <span class="s2">&quot;nano -w&quot;</span>
-</pre></div>
-<p>Great! Now let's check whether our settings were saved.</p>
-<ul>
-<li><em>note</em>: filenames that start with a '.' are generally invisible when exploring your folder structures -- even when you use <code>ls</code> in the command line! To look for these files in the command line, use <code>ls -a</code>. If you're using the finder on a mac, press <code>COMANND + SHIFT + .</code>.</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cat</span> <span class="o">~/.</span><span class="n">gitconfig</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[filter &#34;lfs&#34;]
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-[user]
-	name = Liz Beard
-	email = ecooperbeard@gmail.com
-[color]
-	ui = auto
-[core]
-	editor = nano
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Creating-a-local-repository-with-git">Creating a local repository with git<a class="anchor-link" href="#Creating-a-local-repository-with-git">&#182;</a></h2><p>Let's create a local responsitory so you can track changes on your awesome new project that you want to see develop over time and maybe even turn into a library for others to use. But we're going to start simple, and create a README to help outline the project.</p>
-<p>First, let's create a directory for the project in our home directory:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cd</span>
-<span class="n">pwd</span>
-<span class="n">mkdir</span> <span class="n">new</span><span class="o">-</span><span class="n">project</span>
-<span class="n">cd</span> <span class="n">new</span><span class="o">-</span><span class="n">project</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>/Users/lizbeard
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Now we need to tell git that this is a repository that we'd like to track. This is called "initiating the repository.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">git</span> <span class="n">init</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Initialized empty Git repository in /Users/lizbeard/new-project/.git/
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>If we look in this directory, we'll find a new invisible git directory.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ls</span> <span class="o">-</span><span class="n">a</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>.	..	.git
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>The <code>.git</code> directory contains git's configuration files. DO NOT delete this directory -- you'll delete all of the tracked information in your repository!</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Tracking-files-with-in-your-repo">Tracking files with in your repo<a class="anchor-link" href="#Tracking-files-with-in-your-repo">&#182;</a></h2><p>Now that we've initialized our repository, let's create our README and add our authors names and the project title.</p>
-<ul>
-<li><em>note</em>: You don't <em>have</em> to create/edit your text files using the command line, but we're going to for this workshop just to familiarize ourselves with it.</li>
-</ul>
-<div class="highlight"><pre><span></span>nano README.md
-<span class="c1"># add project title and authors</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">git</span> <span class="n">status</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>On branch master
-
-No commits yet
-
-Untracked files:
-  (use &#34;git add &lt;file&gt;...&#34; to include in what will be committed)
-
-	<span class="ansi-red-fg">README.md</span>
-
-nothing added to commit but untracked files present (use &#34;git add&#34; to track)
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Information about what git knows about the directory is displayed after running <code>git status</code>. We are on the <code>master</code> branch, which is the default branch for a repository. We're not going to cover branches in this workshop, but the resources listed on the workshop README discuss branches in depth.</p>
-<p>For now, it's what's important to realize is that our file is listed as <em>untracked</em>, which means it is in our working directory but git is not tracking it yet -- so no changes made to the file will be recorded by git!</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Adding-files-to-a-git-repo">Adding files to a git repo<a class="anchor-link" href="#Adding-files-to-a-git-repo">&#182;</a></h3><p>To tell git about the file, we'll use the <code>git add</code> command. This is used for two purposes: (1) to tell git that a file should be tracked and (2) to put the file into the git staging area. The staging area serves as a cache to store changes <em>before</em> you commit them to the repository. So you can add more files/changes before submitting them all under a single <code>commit</code>. For more about the 'staging area', see <a href="https://zenodo.org/record/3369466#.YL4cVDZKh24">this presentation by Stephanie DeCross</a>.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">git</span> <span class="n">add</span> <span class="n">README</span><span class="o">.</span><span class="n">md</span>
-<span class="n">git</span> <span class="n">status</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>On branch master
-
-No commits yet
-
-Changes to be committed:
-  (use &#34;git rm --cached &lt;file&gt;...&#34; to unstage)
-
-	<span class="ansi-green-fg">new file:   README.md</span>
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Commit-changes">Commit changes<a class="anchor-link" href="#Commit-changes">&#182;</a></h3><p>In order to tell git to record our changes (adding our new files) into the repository, we need to <code>commit</code> it.</p>
-<div class="highlight"><pre><span></span>git commit
-<span class="c1"># type a commit message: &quot;Add project title and authors&quot;</span>
-<span class="c1"># save the commit message and close your text editor</span>
-</pre></div>
-<p>After we save our commit message and exit the editor, git will commit our file to the local repo. It will report the number of files changed and the number of lines inserted or deleted across all those files.</p>
-<p>Now if we look at the status of the repo:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">git</span> <span class="n">status</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>On branch master
-nothing to commit, working tree clean
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Our file is now in the local repository! There are other ways to commit changes as well. Here are a few:</p>
-<ul>
-<li><code>git commit -m "Commit notes here"</code> commits your changes and submits a message automatically. This tends to be faster than opening the text editor every time, and you generally want to leave sparse change notes.</li>
-<li><code>git commit -am "Commit notes here"</code> adds and commits all files that have been tracked and modified.</li>
-</ul>
-<p>For other commit options, check out the <a href="https://git-scm.com/docs/git-commit/en#_options">git documentation</a>.</p>
-<p>Additionally, you can also add entire directories to be tracked by adding the folder instead of just a file (e.g.<code>git add tools</code>, to track changes in a tools folder).</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Remote-repositories-with-GitHub">Remote repositories with GitHub<a class="anchor-link" href="#Remote-repositories-with-GitHub">&#182;</a></h2><p>We've started tracking changes on our own computer! That's great! But if you love iced coffee as much as I do you know that it's a huge risk to just keep things stored on a local machine.</p>
-<p>Let's set up a remote repository so that we can access our project from multiple locations. This way, we can share the repository with other collaborators easily!</p>
-<p>At this point, you should already have your GitHub account created.</p>
-<h3 id="Create-a-new-repository">Create a new repository<a class="anchor-link" href="#Create-a-new-repository">&#182;</a></h3><p>Let's create an empty repository on github.</p>
-<ul>
-<li>Log in to <a href="https://github.com/">GitHub</a></li>
-<li>Click on the create icon (<code>+</code>) on the top right</li>
-<li>Enter your repository name: "new-project"</li>
-<li>For this exercise, let's keep the repository public</li>
-<li>Since we'll be importing a local repository, make sure that the <strong>Initialize this repository with a README</strong> is <strong><em>UNselected</em></strong></li>
-<li>Click <code>Create Repository</code></li>
-</ul>
-<p>You'll be directed to a page with new information about your repository. We already have our local repository and will be <em>pushing</em> it to GitHub, so we can do the following.</p>
-<div class="highlight"><pre><span></span>git remote add origin https://github.com/&lt;USERNAME&gt;/new-project.git
-</pre></div>
-<p>Now we can execute the following:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">git</span> <span class="n">push</span> <span class="o">-</span><span class="n">u</span> <span class="n">origin</span> <span class="n">master</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Counting objects: 3, done.
-Delta compression using up to 8 threads.
-Compressing objects: 100% (2/2), done.
-Writing objects: 100% (3/3), 283 bytes | 283.00 KiB/s, done.
-Total 3 (delta 0), reused 0 (delta 0)
-To https://github.com/elizabethbeard/new-project
- * [new branch]      master -&gt; master
-Branch &#39;master&#39; set up to track remote branch &#39;master&#39; from &#39;origin&#39;.
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>This pushes our <code>master</code> branch to the remote repository (named via the alias <code>origin</code>) and creates a new <code>master</code> brance in the remote repository. If we look on the GitHub repo, we should see our code. If we click the <code>Commits</code> tab, should see a complete history of commits.</p>
-<p>Syncing to a remote repository adds a third step to our git procedure for tracking changes. Generally, adding changes and pushing them to the remote repo will follow these steps:</p>
-<ol>
-<li><code>git add</code> to add tracked files and changes to the staging area</li>
-<li><code>git commit</code> to push those changes from the staging area to a local repo</li>
-<li><code>git push</code> to push those changes from the local repo to the remote repository</li>
-</ol>
-<p>Systems like git allow us to move work between any two repositories. In practice, though, it’s easiest to use one copy as a central hub, and to keep it on the web (like on GitHub) rather than on someone’s laptop.</p>
-<p>And there you have it! These are the basics of working with git for your own independent purposes. In the next section, let's learn a bit more about how to access and utilize <em>other</em> repositories on git and collaborate with them.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="2.-Utilizing-Remote-Repositories">2. Utilizing Remote Repositories<a class="anchor-link" href="#2.-Utilizing-Remote-Repositories">&#182;</a></h1><p>Version control really comes into its own when we begin to collaborate with other people. We already have most of the machinery we need to do this; the only thing missing is to copy changes from one repository to another.</p>
-<p>Oftentimes, you'll want to access someone else's remote repository to use for your own analyses or benefit. You won't necessarily have write access to the repository, but by forking the repo you'll be able to access the code on your own GitHub and local machine.</p>
-<p>In the bonus section, we'll review how to submit changes to a repository where you don't have access. GitHub provides a functionality called Pull Requests. Essentially, it’s “requesting the owner of the repository to pull in your contributions”. As the owner of a repository, you may or may not accept a pull request. But as a contributor, pull requests provide a path to engage with the community and contribute new tools and functions to different resources.</p>
-<p>Utilizing remote repos usually follow a similar process (see below for a visualization of the process):</p>
-<ol>
-<li>Find a reponsitory on GitHub that belongs to someon else</li>
-<li>Fork it on GitHub's servers into your own GitHub account</li>
-<li><code>git clone</code> the repo to your local machine</li>
-<li>Make changes, and push them to your repository on GitHub</li>
-<li><strong>BONUS</strong> Request that the owner of the repository you forked pulls in your changes</li>
-</ol>
-<p><img src="images/github-fork-diagram.png" width=500 height=500 /></p>
-<h2 id="Is-it-worth-it?-Lemme-Fork-It">Is it worth it? Lemme Fork It<a class="anchor-link" href="#Is-it-worth-it?-Lemme-Fork-It">&#182;</a></h2><p>In today's tutorial, we're going to fork the summer workshop repo so that each week, you'll be able to pull the new material from the COG GitHub to your GitHub and onto your local machine. Ideally, this means no more clicking and downloading files -- we'll do this all through the command line and git.</p>
-<p>The first thing we need to do is fork the COG Summer Workshop Series repository to our own GitHub account.</p>
-<ol>
-<li>Go to the <a href="https://github.com/TU-Coding-Outreach-Group/cog_summer_workshops_2021">COG Summer Workshop Series Repo</a>.</li>
-<li>Click the <strong>fork</strong> button in the upper right hand corner.</li>
-</ol>
-<p>You should now be redirected to the cog_summer_workshops_2021 repo on your own GitHub page.</p>
-<h2 id="Attack-of-the-clone">Attack of the clone<a class="anchor-link" href="#Attack-of-the-clone">&#182;</a></h2><p>To add the remote cog_summer_workshops_2021 repo from our GitHub onto our local machine, we'll use <code>git clone</code>.</p>
-<p>Start by making sure you're in the parent directory where you want the repo to be stored. I want to store this repo in my documents folder.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pwd</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>/Users/lizbeard/new-project
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">Documents</span>
-<span class="n">pwd</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>/Users/lizbeard/Documents
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Now, we'll use <code>git clone</code> to copy the repository to our local machine. Be sure to copy the GitHub repo link the same way we did in Tutorial 1.</p>
-<p>Cloning creates an exact copy of the online repository. By default it creates a directory with the same name as the GitHub repository.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">elizabethbeard</span><span class="o">/</span><span class="n">cog_summer_workshops_2021</span><span class="o">.</span><span class="n">git</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Cloning into &#39;cog_summer_workshops_2021&#39;...
-remote: Enumerating objects: 251, done.
-remote: Counting objects: 100% (251/251), done.
-remote: Compressing objects: 100% (193/193), done.
-remote: Total 251 (delta 133), reused 145 (delta 51), pack-reused 0
-Receiving objects: 100% (251/251), 11.23 MiB | 12.63 MiB/s, done.
-Resolving deltas: 100% (133/133), done.
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cd</span> <span class="n">cog_summer_workshops_2021</span>
-<span class="n">pwd</span>
-<span class="n">ls</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>/Users/lizbeard/Documents/cog_summer_workshops_2021
-LICENSE			desktop.ini		linux-owlsnest
-README.md		excel-basics		neuroimaging-in-python
-bids-heudiconv-fmriprep	git-github		psychopy
-data-visualization-in-r	jupyter-notebook	rsa
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Push-It">Push It<a class="anchor-link" href="#Push-It">&#182;</a></h2><p>Now we can use our cloned repository just as if it were the original, local repository! Let's make some changes to our files and push these.  Let's say you wanted to add some notes from your git/github worksop to your remote repository.</p>
-<div class="highlight"><pre><span></span><span class="nb">cd</span> git-github
-nano git-notes.txt
-<span class="c1"># add some notes or some projects you think you could post on github</span>
-git add git-note.txt
-git commit -m <span class="s2">&quot;added workshop notes&quot;</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Great! Now our changes are stored to our <em>local</em> repository. Let's send our changes back to the <em>remote</em> repository by <code>push</code>ing our changes.</p>
-<ul>
-<li><em>note</em>: you'll need to be in the repo directory to push these changes, <strong>not</strong> inside a subfolder!</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pwd</span>
-<span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="n">main</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>/Users/lizbeard/Documents/cog_summer_workshops_2021
-Counting objects: 4, done.
-Delta compression using up to 8 threads.
-Compressing objects: 100% (4/4), done.
-Writing objects: 100% (4/4), 404 bytes | 404.00 KiB/s, done.
-Total 4 (delta 1), reused 0 (delta 0)
-remote: Resolving deltas: 100% (1/1), completed with 1 local object.
-To https://github.com/elizabethbeard/cog_summer_workshops_2021.git
-   725023f..eb6b3da  main -&gt; main
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>You may notice that here, we're pushing to <code>main</code> instead of master. This is a <a href="https://www.techrepublic.com/article/github-to-replace-master-with-main-starting-in-october-what-developers-need-to-know/">recent change</a> in git and GitHub in an effort to reduce unnecessary holdover references to slaver and replace them with more inclusive terms. Be sure to note the change whenever you're referencing tutorials written before October 2020.</p>
-<h2 id="Pulling-changes-from-a-remote-repository">Pulling changes from a remote repository<a class="anchor-link" href="#Pulling-changes-from-a-remote-repository">&#182;</a></h2><p>We've already updated our <code>origin</code> repo (the repo on our personal GitHub). But let's say a week goes by, and we want to download the materials for Susan's PsychoPy workshop before next Thursday. To do this, we'll pull from the COG or <code>upstream</code> repo.</p>
-<p>Before we can pull from the COG repo into our local repo, we need to make sure that the two are connected.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">git</span> <span class="n">remote</span> <span class="o">-</span><span class="n">v</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>origin	https://github.com/elizabethbeard/cog_summer_workshops_2021.git (fetch)
-origin	https://github.com/elizabethbeard/cog_summer_workshops_2021.git (push)
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Here we can see that the the remote repos linked to our local machine are both from my personal GitHub. But we want to tell git that this repo needs to pull information from the COG GitHub. Let's tell git to make the <a href="">COG repo</a> our <code>upstream</code>.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">git</span> <span class="n">remote</span> <span class="n">add</span> <span class="n">upstream</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">TU</span><span class="o">-</span><span class="n">Coding</span><span class="o">-</span><span class="n">Outreach</span><span class="o">-</span><span class="n">Group</span><span class="o">/</span><span class="n">cog_summer_workshops_2021</span>
-<span class="n">git</span> <span class="n">remote</span> <span class="o">-</span><span class="n">v</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>fatal: remote upstream already exists.
-origin	https://github.com/elizabethbeard/cog_summer_workshops_2021.git (fetch)
-origin	https://github.com/elizabethbeard/cog_summer_workshops_2021.git (push)
-upstream	https://github.com/TU-Coding-Outreach-Group/cog_summer_workshops_2021 (fetch)
-upstream	https://github.com/TU-Coding-Outreach-Group/cog_summer_workshops_2021 (push)
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Now we see that git has <em>two</em> remote locations: our <code>origin</code> repository (the forked repo) and the <code>upstream</code> repository (the COG repo).</p>
-<p>To pull changes from the <code>upstream</code> repository to our <code>main</code> local repository, we can use the following:</p>
-<div class="highlight"><pre><span></span>git pull upstream main
-</pre></div>
-<p>BUT, this doesn't update your <code>origin</code> repo on your GitHub repository. To do that, you'll need to push those changes you've just pulled back to your <code>main</code> repo.</p>
-<div class="highlight"><pre><span></span>git push origin main
-</pre></div>
-<p>It's good to get in the habit of doing this <em>before</em> working on any code or projects, to avoid any potential change conflicts. For more info on conflicts in git, check out this <a href="https://swcarpentry.github.io/git-novice/09-conflict/index.html">software carpentry page</a>.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="BONUS:-Pull-Requests"><strong>BONUS</strong>: Pull Requests<a class="anchor-link" href="#BONUS:-Pull-Requests">&#182;</a></h2><p>Pull Requests are a great solution for contributing to repositories to which you don’t have write access. Remember, Pull Requests are essentially “requesting the owner of the repository to pull in your contributions”.</p>
-<p>For example, say you've found some typos in this repo and want to let Liz and Haroon know you've fixed them and they should too! To submit a Pull Request, follow these steps:</p>
-<ol>
-<li>Make any changes you want to contribute to the <code>upstream</code> repo, then <code>commit</code> and <code>push</code> them to your GitHub repository (<code>origin</code>). </li>
-<li>Go to your GitHub account and in the forked repository find the green button for creating Pull Requests. Click it and follow the instructions.
-<img src="images/github-pull_Request-screenshot.png" width=700 height=400 /></li>
-<li>The owner(s) of the original repository will get a notification that someone created a pull request - the request can be reviewed, commented, and merged in (or not) via GitHub.</li>
-</ol>
-<p>Here is some advice from <a href="https://emdupre.github.io/git-course/06-pull-requests/">Elizabeth DuPre for submitting Pull Requests</a>:</p>
-<blockquote><ul>
-<li>Keep your Pull Request small and focused (makes it easier to process!)<ul>
-<li>Submit one PR per issue</li>
-<li>Create a separate branch for each issue you work on (you can submit a PR from any branch(</li>
-</ul>
-</li>
-<li>Take advantage of available resources!<ul>
-<li>If the repository has contributing guidelines, read them!</li>
-<li>Some repositories pre-populate the body of the PR or issue message with a template.<ul>
-<li>Follow the instructions and provide the information requested.</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Consider creating a new issue first to discuss your ideas before submitting a PR. Some repositories ask for this in their contributing guidelines, but this can be a good approach even if it isn't required, so that you know whether the owner agrees with your suggestion. They might also bring up ideas and/or challenges you haven't considered.</li>
-</ul>
-<p>Your PR may get merged just as it is. It’s very normal, too, for there to be some discussion (on GitHub) and a request for further edits to be made. Given that your pull request haven’t been merged get, you can make changes by adding further commits to your branch and pushing them. In either case, your PR will update automatically once you have pushed your commits.</p>
-</blockquote>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Implementations">Implementations<a class="anchor-link" href="#Implementations">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%HTML</span>
-<span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;560&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;315&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://www.youtube.com/embed/w_iOjU53gbk&quot;</span> <span class="na">frameborder</span><span class="o">=</span><span class="s">&quot;0&quot;</span> <span class="na">allowfullscreen</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-<div class="output_html rendered_html output_subarea ">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/w_iOjU53gbk" frameborder="0" allowfullscreen></iframe>
-
+<div class="output_html rendered_html output_subarea output_execute_result">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/6QhH7cFcyoo;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
 </div>
 
 </div>
