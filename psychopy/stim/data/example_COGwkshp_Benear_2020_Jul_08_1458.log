@@ -1,0 +1,118 @@
+1.1036 	WARNING 	We strongly recommend you activate the PTB sound engine in PsychoPy prefs as the preferred audio engine. Its timing is vastly superior. Your prefs are currently set to use ['sounddevice', 'PTB', 'pyo', 'pygame'] (in that order).
+8.9931 	WARNING 	User requested fullscreen with size [1024  768], but screen is actually [1280, 800]. Using actual size
+9.7305 	EXP 	Created window1 = Window(allowGUI=False, allowStencil=False, args=UNKNOWN, autoLog=True, bitsMode=UNKNOWN, blendMode='avg', bpc=(8, 8, 8), color=array([0., 0., 0.]), colorSpace='rgb', depthBits=8, fullscr=<method-wrapper '__getattribute__' of attributeSetter object at 0x133e47e48>, gamma=None, gammaErrorPolicy='raise', kwargs=UNKNOWN, lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor object at 0x136097d30>, multiSample=False, name='window1', numSamples=2, pos=[320.0, 200.0], screen=0, size=array([2560, 1600]), stencilBits=0, stereo=False, units='height', useFBO=True, useRetina=True, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+9.7305 	EXP 	window1: recordFrameIntervals = False
+9.8961 	EXP 	window1: recordFrameIntervals = True
+10.0804 	EXP 	window1: recordFrameIntervals = False
+10.2557 	EXP 	Created introtext = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='introtext', opacity=1.0, ori=0, pos=array([0., 0.]), rgb=array([255., 255., 255.]), text=str(...), units='height', win=Window(...), wrapWidth=1)
+10.3015 	EXP 	Created encodingimage = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, image='sin', interpolate=True, mask=None, maskParams=None, name='encodingimage', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.5, 0.5]), texRes=128, units='height', win=Window(...))
+10.3266 	EXP 	Sound encodingaudio set volume 1.000
+10.3378 	EXP 	Created encodingtext = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=-2.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.08, italic=False, languageStyle='LTR', name='encodingtext', opacity=1.0, ori=0, pos=array([0., 0.]), rgb=array([255., 255., 255.]), text='default text', units='height', win=Window(...), wrapWidth=1)
+10.3397 	EXP 	Created facttestimage = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, image='sin', interpolate=True, mask=None, maskParams=None, name='facttestimage', opacity=1.0, ori=0.0, pos=array([0. , 0.2]), size=array([0.5, 0.5]), texRes=128, units='height', win=Window(...))
+10.3499 	EXP 	Created factquestiontext = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.06, italic=False, languageStyle='LTR', name='factquestiontext', opacity=1.0, ori=0, pos=array([ 0. , -0.1]), rgb=array([255., 255., 255.]), text='default text', units='height', win=Window(...), wrapWidth=1.7)
+10.3566 	EXP 	Created factACtext = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=-2.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.05, italic=False, languageStyle='LTR', name='factACtext', opacity=1.0, ori=0, pos=array([ 0. , -0.3]), rgb=array([255., 255., 255.]), text='default text', units='height', win=Window(...), wrapWidth=1)
+10.4163 	EXP 	Created sourcetext = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.075, italic=False, languageStyle='LTR', name='sourcetext', opacity=1.0, ori=0, pos=array([0., 0.]), rgb=array([255., 255., 255.]), text='default text', units='height', win=Window(...), wrapWidth=1)
+10.4839 	EXP 	Created exittext = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='exittext', opacity=1.0, ori=0, pos=array([0., 0.]), rgb=array([255., 255., 255.]), text=str(...), units='height', win=Window(...), wrapWidth=1)
+10.5471 	EXP 	introtext: autoDraw = True
+12.0729 	EXP 	Imported semepistim.csv as conditions, 4 conditions, 13 params
+12.0732 	EXP 	Created sequence: random, trialTypes=4, nReps=1, seed=None
+12.0737 	EXP 	New trial (rep=0, index=0): OrderedDict([('type', 'Insect'), ('animalname', 'Woolly Bear Caterpillar'), ('source', 'male'), ('sourceanswer', 'a'), ('animalimage', 'woollybearcaterpillar.jpg'), ('fact', 'The woolly bear caterpillar is resistant to freezing.'), ('questionaudio', 'woollybearcaterpillar.aiff'), ('question', 'What are woolly bear caterpillars resistant to?'), ('lettera', 'a. '), ('choicea', 'Freezing'), ('letterb', 'b. '), ('choiceb', 'Overheating'), ('correctanswer', 'a')])
+12.1726 	DATA 	Keypress: space
+12.1969 	EXP 	introtext: autoDraw = False
+12.1969 	EXP 	encodingimage: image = 'woollybearcaterpillar.jpg'
+12.1969 	EXP 	encodingtext: pos = array([0. , 0.3])
+12.1969 	EXP 	encodingtext: text = 'Woolly Bear Caterpillar'
+12.1969 	EXP 	encodingimage: autoDraw = True
+12.1969 	EXP 	encodingtext: autoDraw = True
+18.0684 	EXP 	New trial (rep=0, index=1): OrderedDict([('type', 'Bird'), ('animalname', 'Toucan'), ('source', 'female'), ('sourceanswer', 'b'), ('animalimage', 'toucan.jpg'), ('fact', 'Toucans regulate their body temperature by adjusting bloodflow to their beaks.'), ('questionaudio', 'toucan.aiff'), ('question', 'How do toucans regulate their body temperature?'), ('lettera', 'a. '), ('choicea', 'Opening their mouths, similar to panting'), ('letterb', 'b. '), ('choiceb', 'Adjusting bloodflow to their beaks'), ('correctanswer', 'b')])
+18.1495 	EXP 	encodingimage: autoDraw = False
+18.1495 	EXP 	encodingtext: autoDraw = False
+18.1495 	EXP 	encodingimage: image = 'toucan.jpg'
+18.1495 	EXP 	encodingtext: pos = array([0. , 0.3])
+18.1495 	EXP 	encodingtext: text = 'Toucan'
+18.1495 	EXP 	encodingimage: autoDraw = True
+18.1495 	EXP 	encodingtext: autoDraw = True
+24.0750 	EXP 	New trial (rep=0, index=2): OrderedDict([('type', 'Marine animal'), ('animalname', 'Clownfish'), ('source', 'female'), ('sourceanswer', 'b'), ('animalimage', 'clownfish.jpg'), ('fact', 'The largest female clownfish is at the top of its group hierarchy.'), ('questionaudio', 'clownfish.aiff'), ('question', "What clownfish is at the top of its group's hierarchy?"), ('lettera', 'a. '), ('choicea', 'The oldest female'), ('letterb', 'b. '), ('choiceb', 'The largest female'), ('correctanswer', 'b')])
+24.1191 	EXP 	encodingimage: autoDraw = False
+24.1191 	EXP 	encodingtext: autoDraw = False
+24.1191 	EXP 	encodingimage: image = 'clownfish.jpg'
+24.1191 	EXP 	encodingtext: pos = array([0. , 0.3])
+24.1191 	EXP 	encodingtext: text = 'Clownfish'
+24.1191 	EXP 	encodingimage: autoDraw = True
+24.1191 	EXP 	encodingtext: autoDraw = True
+30.0724 	EXP 	New trial (rep=0, index=3): OrderedDict([('type', 'Mammal'), ('animalname', 'Polar Bear'), ('source', 'male'), ('sourceanswer', 'a'), ('animalimage', 'polarbear.jpg'), ('fact', 'Polar bears can smell a seal breathing hole in the ice from one kilometer away.'), ('questionaudio', 'polarbear.aiff'), ('question', 'What can a polar bear smell from one kilometer away?'), ('lettera', 'a. '), ('choicea', 'A seal breathing hole'), ('letterb', 'b. '), ('choiceb', 'An elk carcass'), ('correctanswer', 'a')])
+30.1219 	EXP 	encodingimage: autoDraw = False
+30.1219 	EXP 	encodingtext: autoDraw = False
+30.1219 	EXP 	encodingimage: image = 'polarbear.jpg'
+30.1219 	EXP 	encodingtext: pos = array([0. , 0.3])
+30.1219 	EXP 	encodingtext: text = 'Polar Bear'
+30.1219 	EXP 	encodingimage: autoDraw = True
+30.1219 	EXP 	encodingtext: autoDraw = True
+36.0798 	EXP 	Imported semepistim.csv as conditions, 4 conditions, 13 params
+36.0802 	EXP 	Created sequence: random, trialTypes=4, nReps=1, seed=None
+36.0806 	EXP 	New trial (rep=0, index=0): OrderedDict([('type', 'Bird'), ('animalname', 'Toucan'), ('source', 'female'), ('sourceanswer', 'b'), ('animalimage', 'toucan.jpg'), ('fact', 'Toucans regulate their body temperature by adjusting bloodflow to their beaks.'), ('questionaudio', 'toucan.aiff'), ('question', 'How do toucans regulate their body temperature?'), ('lettera', 'a. '), ('choicea', 'Opening their mouths, similar to panting'), ('letterb', 'b. '), ('choiceb', 'Adjusting bloodflow to their beaks'), ('correctanswer', 'b')])
+36.1915 	EXP 	encodingimage: autoDraw = False
+36.1915 	EXP 	encodingtext: autoDraw = False
+36.1915 	EXP 	facttestimage: image = 'toucan.jpg'
+36.1915 	EXP 	factquestiontext: text = 'How do toucans regulate their body temperature?'
+36.1915 	EXP 	factACtext: text = 'a. Opening their mouths, similar to panting\nb. Adjusting bloodflow to their beaks'
+36.1915 	EXP 	facttestimage: autoDraw = True
+36.1915 	EXP 	factquestiontext: autoDraw = True
+36.1915 	EXP 	factACtext: autoDraw = True
+40.6658 	DATA 	Keypress: b
+40.6787 	EXP 	facttestimage: autoDraw = False
+40.6787 	EXP 	factquestiontext: autoDraw = False
+40.6787 	EXP 	factACtext: autoDraw = False
+40.6787 	EXP 	sourcetext: text = 'Did a male or female voice tell you this fact?\n\na. Male \nb. Female'
+40.6787 	EXP 	sourcetext: autoDraw = True
+42.7293 	EXP 	New trial (rep=0, index=1): OrderedDict([('type', 'Insect'), ('animalname', 'Woolly Bear Caterpillar'), ('source', 'male'), ('sourceanswer', 'a'), ('animalimage', 'woollybearcaterpillar.jpg'), ('fact', 'The woolly bear caterpillar is resistant to freezing.'), ('questionaudio', 'woollybearcaterpillar.aiff'), ('question', 'What are woolly bear caterpillars resistant to?'), ('lettera', 'a. '), ('choicea', 'Freezing'), ('letterb', 'b. '), ('choiceb', 'Overheating'), ('correctanswer', 'a')])
+42.7607 	DATA 	Keypress: b
+42.7780 	EXP 	sourcetext: autoDraw = False
+42.7780 	EXP 	facttestimage: image = 'woollybearcaterpillar.jpg'
+42.7780 	EXP 	factquestiontext: text = 'What are woolly bear caterpillars resistant to?'
+42.7780 	EXP 	factACtext: text = 'a. Freezing\nb. Overheating'
+42.7780 	EXP 	facttestimage: autoDraw = True
+42.7780 	EXP 	factquestiontext: autoDraw = True
+42.7780 	EXP 	factACtext: autoDraw = True
+45.3152 	DATA 	Keypress: a
+45.3290 	EXP 	facttestimage: autoDraw = False
+45.3290 	EXP 	factquestiontext: autoDraw = False
+45.3290 	EXP 	factACtext: autoDraw = False
+45.3290 	EXP 	sourcetext: text = 'Did a male or female voice tell you this fact?\n\na. Male \nb. Female'
+45.3290 	EXP 	sourcetext: autoDraw = True
+47.4649 	EXP 	New trial (rep=0, index=2): OrderedDict([('type', 'Mammal'), ('animalname', 'Polar Bear'), ('source', 'male'), ('sourceanswer', 'a'), ('animalimage', 'polarbear.jpg'), ('fact', 'Polar bears can smell a seal breathing hole in the ice from one kilometer away.'), ('questionaudio', 'polarbear.aiff'), ('question', 'What can a polar bear smell from one kilometer away?'), ('lettera', 'a. '), ('choicea', 'A seal breathing hole'), ('letterb', 'b. '), ('choiceb', 'An elk carcass'), ('correctanswer', 'a')])
+47.4974 	DATA 	Keypress: b
+47.5134 	EXP 	sourcetext: autoDraw = False
+47.5134 	EXP 	facttestimage: image = 'polarbear.jpg'
+47.5134 	EXP 	factquestiontext: text = 'What can a polar bear smell from one kilometer away?'
+47.5134 	EXP 	factACtext: text = 'a. A seal breathing hole\nb. An elk carcass'
+47.5134 	EXP 	facttestimage: autoDraw = True
+47.5134 	EXP 	factquestiontext: autoDraw = True
+47.5134 	EXP 	factACtext: autoDraw = True
+50.9357 	DATA 	Keypress: a
+50.9487 	EXP 	facttestimage: autoDraw = False
+50.9487 	EXP 	factquestiontext: autoDraw = False
+50.9487 	EXP 	factACtext: autoDraw = False
+50.9487 	EXP 	sourcetext: text = 'Did a male or female voice tell you this fact?\n\na. Male \nb. Female'
+50.9487 	EXP 	sourcetext: autoDraw = True
+52.8834 	EXP 	New trial (rep=0, index=3): OrderedDict([('type', 'Marine animal'), ('animalname', 'Clownfish'), ('source', 'female'), ('sourceanswer', 'b'), ('animalimage', 'clownfish.jpg'), ('fact', 'The largest female clownfish is at the top of its group hierarchy.'), ('questionaudio', 'clownfish.aiff'), ('question', "What clownfish is at the top of its group's hierarchy?"), ('lettera', 'a. '), ('choicea', 'The oldest female'), ('letterb', 'b. '), ('choiceb', 'The largest female'), ('correctanswer', 'b')])
+52.9076 	DATA 	Keypress: a
+52.9329 	EXP 	sourcetext: autoDraw = False
+52.9329 	EXP 	facttestimage: image = 'clownfish.jpg'
+52.9329 	EXP 	factquestiontext: text = "What clownfish is at the top of its group's hierarchy?"
+52.9329 	EXP 	factACtext: text = 'a. The oldest female\nb. The largest female'
+52.9329 	EXP 	facttestimage: autoDraw = True
+52.9329 	EXP 	factquestiontext: autoDraw = True
+52.9329 	EXP 	factACtext: autoDraw = True
+57.3716 	DATA 	Keypress: a
+57.3848 	EXP 	facttestimage: autoDraw = False
+57.3848 	EXP 	factquestiontext: autoDraw = False
+57.3848 	EXP 	factACtext: autoDraw = False
+57.3848 	EXP 	sourcetext: text = 'Did a male or female voice tell you this fact?\n\na. Male \nb. Female'
+57.3848 	EXP 	sourcetext: autoDraw = True
+59.8898 	DATA 	Keypress: b
+59.9034 	EXP 	sourcetext: autoDraw = False
+59.9034 	EXP 	exittext: autoDraw = True
+62.0228 	DATA 	Keypress: space
+62.0370 	EXP 	exittext: autoDraw = False
+62.3104 	EXP 	window1: mouseVisible = True
