@@ -10,7 +10,7 @@
 
 ## Description
 
-This workshop will cover how to use [PsychoPy](https://www.psychopy.org/index.html) to build psychological experiments using the Builder GUI.
+This workshop will cover how to use [PsychoPy](https://www.psychopy.org/index.html) to build psychological experiments using the Builder GUI. This workshop will cover how to use [PsychoPy](https://www.psychopy.org/index.html) to build psychological experiments using the Builder GUI. PsycoPy is a free, open-source software for people with and without coding experience and a good alternative to E-Prime. It is popular for psychology task creation and presentation and is used in both behavioral and neuroimaging tasks, and supports online study capabilities.
 
 ## Outline
 
