@@ -1,7 +1,10 @@
 # Coding Outreach Group Summer Workshop
 # PsychoPy 
+
 06/18/2021
+
 **Content creator: Susan Benear**
+
 **Content editor: John Erardi**
 
 
