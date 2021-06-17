@@ -1,0 +1,110 @@
+/* Whole document: */
+body{
+    font-family: avenir;
+    font-size: 13pt;
+    color: rgb(0, 0, 0);
+    background-color: #f2f2f2;
+   /* background-image: url("background-hex.jpg"); */
+  }
+  
+  /* Headers */
+  
+  h1.title {color: #ffffff;
+    font-size: 24pt;
+    background-color: #720000;
+    opacity: 1.0; /* completely opaque */
+    padding-top: 1em;
+    padding-bottom: .2em;
+    padding-left: .1em;
+    text-align: left;
+    /* border-left: 15px solid #074a17; adds a little green stripe on the left border */
+    
+  }
+  
+  h1, .h1, h2, .h2, h3, .h3 {
+      margin-top: 15px;
+  }
+  
+  
+  h1 {
+    font-size: 18pt;
+    color: 	 white;
+    background-color: #000000;
+    padding-left: .5em;
+    padding-top: .25em;
+    
+  }
+  
+  
+  h2 { 
+    font-size: 16pt;
+    color:  #000000;  
+      padding-top:.5em;
+      opacity: 1.0; 
+  }
+  
+  h3 { 
+    font-size: 14pt;
+     color: #000000;
+  }
+  
+  
+  /* Code Chunks */
+  pre {
+    max-height: 350px;
+    background-color: #E4ECE7;
+    overflow-y: auto;
+  }
+  
+  pre[class] {
+    max-height: 250px;
+  }
+  
+  .r code {
+      white-space: pre;
+  }
+  
+  
+  
+  
+  /* LINKS */
+  
+  /* unvisited link */
+  a:link {
+    color: #374AD5;
+    text-decoration: none;
+  }
+  
+  
+  /* visited link */
+  a:visited {
+    color: #4B0082;
+    text-decoration: none;
+  }
+  
+  /* mouse over link */
+  a:hover { 
+    color: #4B0082;
+    background-color: #E4ECE7;
+    text-decoration: none;
+  }
+  
+  /* TOC */
+  
+  div #TOC {float:right;
+  width:20%;
+  font-size: 11pt;
+  border: .5px solid #720000;
+  border-radius: 10px;
+  background: white;
+  padding: .5em;
+  overflow:hidden;
+  /*  box-shadow: 4px 4px 5px #888; */
+  }
+  
+.tocify-subheader > .tocify-item {
+    text-indent: inherit;
+    padding-left: 2em;
+    }
+  
+  

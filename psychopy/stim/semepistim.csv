@@ -1,0 +1,5 @@
+type,animalname,source,sourceanswer,animalimage,fact,questionaudio,question,lettera,choicea,letterb,choiceb,correctanswer
+Mammal,Polar Bear,male,a,polarbear.jpg,Polar bears can smell a seal breathing hole in the ice from one kilometer away.,polarbear.aiff,What can a polar bear smell from one kilometer away?,a. ,A seal breathing hole,b. ,An elk carcass,a
+Bird,Toucan,female,b,toucan.jpg,Toucans regulate their body temperature by adjusting bloodflow to their beaks.,toucan.aiff,How do toucans regulate their body temperature?,a. ,"Opening their mouths, similar to panting",b. ,Adjusting bloodflow to their beaks,b
+Marine animal,Clownfish,female,b,clownfish.jpg,The largest female clownfish is at the top of its group hierarchy.,clownfish.aiff,What clownfish is at the top of its group's hierarchy?,a. ,The oldest female,b. ,The largest female,b
+Insect,Woolly Bear Caterpillar,male,a,woollybearcaterpillar.jpg,The woolly bear caterpillar is resistant to freezing.,woollybearcaterpillar.aiff,What are woolly bear caterpillars resistant to?,a. ,Freezing,b. ,Overheating,a
