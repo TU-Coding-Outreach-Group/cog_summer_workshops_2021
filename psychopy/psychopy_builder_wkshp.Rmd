@@ -80,7 +80,7 @@ Next, you want to save your PsychoPy program to the same folder where the stimul
 # Building Your Program
 
 ## Routine Basics
-As I discussed in the video, all of the little bits of program you want to execute are called "routines." Let's delete the trial routine the template gave us. Right click it and select **remove**. Then we'll start by making a simple text presentation. To create a new routine, click **Insert Routine > new**, then name the routine whatever you want, then click where you want it to go. We can just put this one right on the line since it's our first routine:
+As I discussed in the video, all of the little bits of program you want to execute are called "routines." Let's delete the trial routine the template gave us. **Right click** it and select **remove**. Then we'll start by making a simple text presentation. To create a new routine, click **Insert Routine > new**, then name the routine whatever you want, then click where you want it to go. We can just put this one right on the line since it's our first routine:
 
 ![](images/screenshot3.png){width=80%}
 
