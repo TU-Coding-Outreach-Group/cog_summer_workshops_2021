@@ -41,9 +41,7 @@ This workshop will cover how to use [PsychoPy](https://www.psychopy.org/index.ht
 ## Set Up & Prerequisites
 
 
-[Prerequisites Video](https://youtu.be/ly2ZX6VIa8E)
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ly2ZX6VIa8E" frameborder="0" allowfullscreen></iframe>
+[![](https://img.youtube.com/vi/ly2ZX6VIa8E/0.jpg)](http://www.youtube.com/watch?v=ly2ZX6VIa8E)
 
 Before the workshop:
 
@@ -57,8 +55,9 @@ Before the workshop:
 
 ## Our Task
 
-Now, let's watch the [intro video](https://youtu.be/c2dxXUnJvKA) and then get started on the workshop!
+Now, let's watch the intro video and then get started on the workshop!
 
+[![](https://img.youtube.com/vi/c2dxXUnJvKA/0.jpg)](http://www.youtube.com/watch?v=c2dxXUnJvKA)
 
 
 Just to reiterate, today we will be creating a memory task in which participants will be presented with images of animals, and facts will be read to participants about those animals by two prerecorded voices (one defined as male, one as female). After all these are presented (this example task includes just four animals), we want to test participants' memory for both the facts and the source (voice) of those facts. Let's make this experiment!
