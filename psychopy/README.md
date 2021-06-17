@@ -24,7 +24,7 @@ This workshop will cover how to use [PsychoPy](https://www.psychopy.org/index.ht
 
 ## Set Up & Prerequisites
 
-![](https://www.youtube.com/embed/ly2ZX6VIa8E)
+![](https://youtu.be/ly2ZX6VIa8E)
 
 Before the workshop:
 
