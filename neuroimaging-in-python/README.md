@@ -26,9 +26,8 @@ In this workshop, we walk attendees through a series of traditional fMRI analyti
 2. Demonstrate benefits of scripting analyses in python
 
 ## Workshop Materials
-- [Notebook Viewer](https://tu-coding-outreach-group.github.io/cog_summer_workshops_2021/git-github/index.html)
-- [Intro Slides](https://github.com/TU-Coding-Outreach-Group/cog_summer_workshops_2021/blob/main/git-github/git_github_intro-COG2021.pdf)
-- [Outro Slides](https://github.com/TU-Coding-Outreach-Group/cog_summer_workshops_2021/blob/main/git-github/git_github_outro-COG2021.pdf)
+- [Notebook Viewer](https://tu-coding-outreach-group.github.io/cog_summer_workshops_2021/neuroimaging-in-python/index.html)
+- [Intro Slides](https://github.com/TU-Coding-Outreach-Group/cog_summer_workshops_2021/blob/main/neuroimaging-in-python/neuroimaging_python_intro-COG2021.pdf)
 
 ## Outline
 | Topic | Time | Description |
