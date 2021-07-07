@@ -1,0 +1,1047 @@
+---
+title: "Visualizing Data in R"
+author: "Mitchell, W.J."
+date: "7/1/2021"
+output: html_document
+---
+ 0.0 An R Markdown Primer 
+========================================================
+
+This is an R Markdown script. Much like a typical R script, it contains code documenting your process, such that any other individual could reproduce your work. However, unlike typical R scripts, R Markdown allows us to narrate the process (much as I'm doing now). The different types of text (narration and code) usually appear in different colors so you can tell the difference; though, what color it appears as for you might differ based on your settings. 
+
+A typical R script will interpret any text that you include as a command to be carried out, unless otherwise marked by a hashtag (#). The output will appear in your R Studio Console window. By output, we just mean the product, sum, or status of whatever calculation or item you are asking R to compute or show for you.  
+
+R Markdown can be a little more complicated, but you also have a lot of control over how commands, text, and output are displayed. Ultimately, because of this additional control, I find R Markdown scripts more intuitive and easy to follow (though not everyone feels the same). The output of any commands you enter into an R Markdown script typically appears just below the script that created it. We can read it in the console if we prefer, but it's nice having all the information we want in one window (this one). We can also minimize output and text that we don't want to look at in the moment by clicking on the arrow next to the line count on the left side of the window.
+
+In order to tell R when you want it to treat something as a command in R Markdown, you use these ``` symbols (which are admittedly a little annoying to create on a keyboard. I usually just copy and paste them) followed by "{r }". Below that, we enter the command(s) we want to run, and then we close it all out with those hard-to-create symbols again.
+Next to "{r }", we can add descriptions of what is happening within that block. Let's look at this example below :
+
+```{r Example 1}
+# This is an example of a command. I use the three little dash marks, followed by {r } to let R know I want to give it a command. I can describe what the command is after the r (Like I did with "Example"), though, it's not necessary to do so. Also, notice, much like a typical R script, I can use a # to let R know that this text should not be consider a command. If I were to press "Enter" and go down a line, I can have it start paying attention again and calculate the sum of 2 and 4.
+
+Value <- 2 + 4
+Value
+
+# to calculate that line in R Markdown, I can press COMMAND + ENTER, or to run all of the commands within this block, I can press the green right facing arrow in the upper right corner of the block.
+```
+If you pressed the "Run" command, hopefully you saw a little box pop up just below your block that said "[1] 6". If you want to export the output, whatever it may be, to a new window, simply click the first icon of the the three in the upper right corner of the output box. To minimize, click the second, and to delete, press the third. Note that deleting the output does not affect the related code.
+
+Also of note, the down-facing arrow (second icon in the upper right corner of the code block) will tell R "Run all of the blocks of command that I have before this block." It can be helpful if you make a mistake and don't want to rerun all of the previous blocks one by one to get back to where you were. It also makes your code very easy for other people to run. They can quite literally do it with the click of a button! If we click the cog icon in the same tray, we can access the output options and manipulate where output appears and what it looks like, but that's beyond the scope of this review. Let's go ahead and try it below; if you click on the "Run all" function for the Example 3 block, Example 1 and Example 2 should rerun and run, respectively:
+
+```{r Example 2}
+(Value * 3) + 2
+```
+
+```{r Example 3}
+(Value/10)
+```
+R Markdown scripts will allow us, once we are done, to compile all of our work, or "knit" it, and share it as either an interactive pdf or html document which others can follow. They are very helpful if you want to run a stat coding blog, or, say, teach a class on visualizing data in R. I'm not going to go much deeper into the setup of R Markdown, but I have included a very helpful reference in the course materials for those interested.
+
+Of note for those familiar with R, but new to R Markdown: A few functions work differently in R Markdown, relative to an R script. For example, in a typical R script, we could set our working directory using the setwd function and it would remain the working directory until otherwise specified. R Markdown does not play nice with the setwd command for whatever reason, so I've found the simplest option is to just recall the file pathway whenever you want to load or save a file. The others aren't super relevant for this presentation, but something to keep in mind if anyone gets converted to the cult of R Markdown. 
+
+Now that we've got that out of the way, let's get started! 
+
+0.5. Workshop Setup 
+===================================================
+
+Let's get started by first loading the packages that we're going to need in this workshop. I have them listed below. Those new to R should download all of the packages by running the Package Installation block. Again, as a reminder for those of you new to R Markdown, you can just click the green "play" arrow in the upper right hand corner. If you already have these packages, you can skip this step. If you are unsure if you do, I'd recommend running it anyway; it won't hurt anything:
+```{r Package Installation}
+# install.packages("effects")
+# install.packages("GGally")
+# install.packages("ggplot2")
+# install.packages("ggpubr")
+# install.packages("ggthemes")
+# install.packages("interactions")
+# install.packages("psych")
+# install.packages("plyr")
+# install.packages("RColorBrewer")
+# install.packages("sjPlot")
+# install.packages("skimr")
+```
+
+Now that the packages are installed, let's let R know which packages we want it to have ready:
+```{r Package Management, message=FALSE, warning=FALSE}
+library(effects)
+library(GGally)
+library(ggplot2)
+library(ggpubr)
+library(ggthemes)
+library(interactions)
+library(psych)
+library(plyr)
+library(RColorBrewer)
+library(sjPlot)
+library(skimr)
+```
+ 
+Next, I'm going to specify the working directory in which I will be storing the figures that we generate. You should specify whatever filepath you'd like.
+  
+```{r Setting Working Directory}
+  Plots.Dir <- "C:/Users/Administrator/Desktop/COG Workshop/Plots/"
+``` 
+
+Lastly, we're going to load our first of three dataframes. This first dataframe contains data from a project I'd recently finished looking at the representational similarity of affect in specific brain regions from both children and adults. Once again, you may need to modify the filepath here to designate where ever you have the dataframe stored:
+
+```{r Loading First Dataframe}
+   load("C:/Users/Administrator/Desktop/COG Workshop/Dataframes/df1.rda")
+```
+
+There are 8 variables in this dataset, and we're primarily going to focus on pattern similarity, captured by Correlation.fz, region of interest, captured by ROI, age group, captured by Age.Group, and stimuli valence, captured by Valence.Pair. The function below (from the psych package) just gives us a brief overview of our variables. 
+
+```{r Examining First Dataframe}
+   describe(df)
+```
+
+Now that setup is done, let's begin!
+
+1.0. Quick Assumption Visualizations
+====================================================================
+
+One of the first thing any good researcher should do once their data is formatted for analysis is examine whether the data meets the assumptions necessary for the tests they want to run. This often involves visual inspections, and R has a lot of packages to make this simple. 
+
+We're going to start with a function that is not visually focused, per se, but one that's very simple and that I find very useful for its integration of basic visual information and summary statistics: the skim function in the skimr package. 
+
+```{r Histograms w/ skimr}
+skim(df)
+```
+
+As you can see, skimr will summarize the variables in my whole dataframe and group them by type. What's notable for us is that for the numeric variable type (at the bottom), it will automatically generate mini histograms to examine data distributions, which is really helpful to glance at. 
+
+However, miniature histograms might not always be the best means of visually inspecting our data, so we're going to quickly move on to a function that is far more visually oriented. The ggpairs function within the GGally package will allow us to specify a few variables of interest and examine how the datapoints of those variables are distributed within the context of each other. It will automatically identify different data types, like factors, continuous variables, etc. and make the reasonable selection for how to display the data. We're gonna try it with a few variables now and you'll see what I mean. Note of warning: this function could take a very long time to run if you have a big dataframe and lots of variables. The first case is true for us now, but not the second case, so we should be fine. 
+
+```{r Scatterplot Matrix w/ GGally, message=FALSE, warning=FALSE}
+ggpairs(data=df[c("Correlation.fz", "ROI", "Age.MOs", "Valence.Pair")], 
+                       lower = list(continuous = wrap("smooth", method = "loess")), showStrips=TRUE)
+```
+
+There's a lot going on here, so let's take a quick moment to read through it. This follows a typical column-row format, so in order to understand what we're looking at, we need to pay attention to those. Along the diagonal, from the upper right corner to the lower left forner, we see frequency distributions of the four variables, which makes sense. They aren't interacting with any variables except for themselves. When we go off of the diagonal, in the upper row, let's say, we see more interesting results. For example, we see a boxplot of the interaction between ROI and Correlation.fz in the second column, the correlation between age and our correlation variable in the third column, and yet another boxplot in the last. This function allows us to see a hell of a lot of information in a very tightly organized space. 
+
+While both skimr and ggpairs are highly convenient for taking a quick look at the distribution of a lot of variables at once, their resolution, necessarily, leaves a little to be desired. That is to say these are not well suited for examining complex data that might hide nuances with broad binning. So we're gonna use commands to single out specific variables of interest.
+
+Base R's hist function does an excellent job of demonstrating frequency distributions:
+
+```{r Histogram w/ Base R}
+hist(df$Correlation.fz)
+```
+
+and this will suit most of our needs. We could get a little more fancy with gghistograms from the ggpubr package if we like, where main specifies the title of the plot, and xlab specifies the label on the x axis:
+
+```{r Histogram Plots w/ ggpubr, message=FALSE, warning=FALSE}
+gghistogram(df$Correlation.fz, 
+            main = "Histogram of Correlations (Fisher's Z)", 
+            xlab = "Correlations")
+```
+
+But for how most researchers use histograms, honestly, you can't really go wrong with either. The ggpubr package has a lot of other great diagnostic and descriptive visualization options in it. For example, if we want to further examine the normality of a distribution, we can always use the ggqqplot function
+
+```{r QQ Plots w/ ggpubr}
+ggqqplot(data = df, 
+         x = "Correlation.fz")
+```
+
+The problem we have with this plot, though, is we again don't have quite enough resolution. In the study this data is pulled from, we have different conditions by valence, so we should really be looking at whether each valence group is distributed normally. ggqqplot makes that simple to do with something called facet wrapping (Keep note of that, we'll come back to it when we get to ggplot). In this command below, we're specifing the dataframe and variable again, but then we're also telling ggpubr what we want the plot to look like with ggtheme and specifying that we'd like it to analyze the distribution of values within each category of the variable Valence.Pair.
+
+```{r Facet QQ Plots w/ ggpubr}
+ggqqplot(data = df, 
+         x = "Correlation.fz", 
+         ggtheme = theme_bw()) +
+         facet_grid( ~ Valence.Pair, labeller = "label_both")
+```
+
+Taking that one step further, we can look with greater resolution by adding more variables to the left of the tilde:
+
+```{r Facet Grid QQ Plots w/ ggpubr}
+ggqqplot(data = df, 
+         x = "Correlation.fz", 
+         ggtheme = theme_bw()) +
+         facet_grid(Age.Group + ROI ~ Valence.Pair, labeller = "label_both")
+```
+
+As you can see, what we add to the right of the tilde specifies what variable categories we want to see in the columns, and what we add to the left of the tilde specifies what we want to see in the rows. Please note that this facet_grid argument works equally as well with gghistogram as well. Any one argument used within one ggpubr function likely caries over to the other functions within the package, and in fact you will see that the logic of how a lot of these "gg-" visualization packages work are fairly universal across the various packages. 
+
+Moving along, ggpubr also offers easy-to-code boxplots with a lot of customization options. Let's start with the basic example, in which we just want to see the outliers and distribution of our correlations by valence type, where palette :
+
+```{r Box Plot}
+  ggboxplot(df, 
+            x = "Valence.Pair", 
+            y = "Correlation.fz")
+```
+ 
+Now, we could get a little more complex and fact by ROI as well: 
+
+```{r Box Plot w/ ggpubr}
+  ggboxplot(df, 
+            x = "Valence.Pair", 
+            y = "Correlation.fz", 
+            facet.by = "ROI")
+```
+ 
+Lastly, let's get a little crazy and color by age group, and we'll specify what colors we want to use using the palette command, which accepts basic inputs like "Blue" or fun ggsci palettes, like "rickandmorty" or "simpsons". We're just going to keep it boring with "lancet", though, because the colors chosen for the other two are quite atrocious:  
+
+```{r Shaded Box Plot w/ ggpubr}
+  ggboxplot(df, 
+            x = "Valence.Pair", 
+            y = "Correlation.fz", 
+            color = "Age.Group", 
+            palette = "lancet",
+            facet.by = "ROI")
+```
+
+and now we can see with far greater accuracy exactly where our outliers are out lyin'. 
+
+Frankly, all of this so far is likely elementary to any researchers who've been using R as the default statistics program for some time. We'll now move on to what many view as the main event in R data visualization: ggplot2, and its many  applications. 
+
+2.0. The Anatomy of a ggplot2 Command
+=====================================================================
+
+# ----- Plot Creation -----
+
+ggplot2 is widely considered the premier data visualization tool for R. As such, the arguments used by the ggplot command are very important to understand. The volume of customization options is frankly overwhelming, but they allow us to produce the beautiful figures that we often see associated with R and are substantially less overwhelming when standardized in a template format. I certainly don't memorize all of the settings I've found to look best and reproduce them everytime I need to plot new data. Instead, I create a template that I can easily copy and paste or recall, and then focus on changing only the details relevant to the data at hand. In this lecture, I'm going to share my standard ggplot template and highlight what all of the arguments do. By the end, you should feel knowledgeable enough to start tweaking the aesthetic qualities of your own plots to find what you feel looks best, and maybe even explore the bevy of additional arguments which I certainly won't have time to cover within the ggplot documentation. 
+
+To start, we're just going to  do a basic regression plot, in which the variable age (in months) predicts pattern similarity, but the actual data doesn't matter much here. Instead, we're going to focus on just about everything but the data.
+
+```{r Plot Creation w/ ggplot2, message=FALSE}
+ggplot(df, aes(x = Age.MOs, y = Correlation.fz))
+```
+
+This is just about the most basic plot we could run in ggplot. We start by defining the dataframe from which we are pulling our variables (df), and then we tell R which two variables will define the aesthetics of this plot (aes(x = Age.MOs, y = Correlation.fz)). As you can see, and as is common in R, we separate these arguments with a comma, and that's enough for R to create a basic 2d plane on which we could visualize data. R automatically places the variable we defined as X on the x axis and labels it, and then populates the Y axis as well. Both axes are given reasonable ranges, based on the range of the data.
+
+
+# ----- Adding Geoms -----
+
+However, if we want to see the actual data, we need to define what type of plot (i.e., line, bar, scatter, etc.) we want to see. In order to add more layers to a ggplot, we need to use an addition sign:
+
+```{r Adding Geoms w/ ggplot 2, message=FALSE}
+ggplot(df, aes(x = Age.MOs, y = Correlation.fz)) +
+    geom_smooth(method="lm", alpha = .25, size = 1.5)
+```
+Here, we kept the first line the same, and we're adding a command for ggplot to produce a geometric shape (hence, "geom_") of the type "smooth" (or a smoothed regression line). There are dozens of possible geoms one could use in ggplot. For reference, you can either check the supplementary inforgraphic I supplied or enter "?ggplot" in the console to review the documentation. Following the command, you'll see arguments that define the method of smoothing, how dark or light the standard error cloud is around the regression line, and how thick the regression line should be, respectively. These will obviously change quite a bit depending upon the plot, so we'll dive deeper into these options in a later lecture. For now, I want to move on to commands that I almost always use no matter what type of plot I'm producing. 
+
+# ----- Labeling Plots -----
+
+The above plot might be perfectly fine for you and your team, who have been looking at the data for months, to understand the relationship your studying, but adding more descriptive labels would go a long way to make these plots more accessible to others. There are a million different commands that will alter the labels of the axes, but I'm partial to this approach, which allows us to modify the title and add subtitles and captions as well:
+
+```{r Adding Labels w/ ggplot 2, message=FALSE}
+ggplot(df, aes(x = Age.MOs, y = Correlation.fz)) +
+    geom_smooth(method="lm", alpha = .25, size = 1.5) +
+    labs(title = "Age Predicts Pattern Similarity",
+       subtitle = "As age increases, pattern similarity decreases.",
+       x = "Age (in Months)", 
+       y ="Mean Correlative Value (Fisher's Z)",
+       caption = "p > 0.05: N.S. \np < 0.05: * \np < 0.01: ** \np < 0.001: ***")
+```
+
+Notice, once again, that we string together multiple layers through the use of addition signs, but within the context of a single function, commas are still used to separate arguments. The labs function allows us to designate what we want to appear in the title and axes. I also like to take advantage of the subtitle and caption arguments to give a very brief, easy to understand interpretation of what I want my readers to take a way from the plot, and to note important information in interpreting the plot. As you can see, text must be bookended with quotation marks. I use "\np" within the caption to let R know I want everything to the right to appear on a new line. 
+
+# ----- Specifying Plot Axes Range -----
+
+This looks better, certainly, but it's a little disingenuous, because my Y axis should really range from -1 to 1. The coord_cartesian function is by far the best way to manipulate the displayed range of your axes without actually modifying the data (Some other functions will exclude datapoints that sit outside of the range you define, meaning they won't influence your regression line). We simply define the lower and upper limits of our x (xlim) and/or y (ylim) axis: 
+
+```{r Setting Plot Limits w/ ggplot 2, message=FALSE}
+ggplot(df, aes(x = Age.MOs, y = Correlation.fz)) +
+    geom_smooth(method="lm", alpha = .25, size = 1.5) +
+    labs(title = "Age Predicts Pattern Similarity",
+       subtitle = "As age increases, pattern similarity decreases.",
+       x = "Age (in Months)", 
+       y ="Mean Correlative Value (Fisher's Z)",
+       caption = "p > 0.05: N.S. \np < 0.05: * \np < 0.01: ** \np < 0.001: ***") +
+    coord_cartesian(ylim=c(-1, 1))
+```
+
+# ----- Using Themes -----
+
+Great! Now the data is all technically correct, but I really don't like that ugly gray background. Let's change that with the host of functions that come with the ggtheme package. I believe that base ggplot2 may accept some theme commands without needing ggtheme, but ggtheme, at the least, expands the options we have to customize our plots. We'll start with my usual favorite, theme_classic: 
+
+```{r Adding Themes w/ ggplot2, message=FALSE}
+ggplot(df, aes(x = Age.MOs, y = Correlation.fz)) +
+    geom_smooth(method="lm", alpha = .25, size = 1.5) +
+    labs(title = "Age Predicts Pattern Similarity",
+       subtitle = "As age increases, pattern similarity decreases.",
+       x = "Age (in Months)", 
+       y ="Mean Correlative Value (Fisher's Z)",
+       caption = "p > 0.05: N.S. \np < 0.05: * \np < 0.01: ** \np < 0.001: ***") +
+    coord_cartesian(ylim=c(-1, 1)) +
+    theme_classic()
+```
+
+The "theme_" commands do an overhaul on the presentation of the plot, and make many changes all at once. Let's take a look what another few look like  
+
+```{r Theme Options w/ ggplot 2, message=FALSE}
+ggplot(df, aes(x = Age.MOs, y = Correlation.fz)) +
+    geom_smooth(method="lm", alpha = .25, size = 1.5) +
+    labs(title = "Age Predicts Pattern Similarity",
+       subtitle = "As age increases, pattern similarity decreases.",
+       x = "Age (in Months)", 
+       y ="Mean Correlative Value (Fisher's Z)",
+       caption = "p > 0.05: N.S. \np < 0.05: * \np < 0.01: ** \np < 0.001: ***") +
+    coord_cartesian(ylim=c(-1, 1)) +
+    theme_dark()
+
+ggplot(df, aes(x = Age.MOs, y = Correlation.fz)) +
+    geom_smooth(method="lm", alpha = .25, size = 1.5) +
+    labs(title = "Age Predicts Pattern Similarity",
+       subtitle = "As age increases, pattern similarity decreases.",
+       x = "Age (in Months)", 
+       y ="Mean Correlative Value (Fisher's Z)",
+       caption = "p > 0.05: N.S. \np < 0.05: * \np < 0.01: ** \np < 0.001: ***") +
+    coord_cartesian(ylim=c(-1, 1)) +
+    theme_minimal()
+
+
+ggplot(df, aes(x = Age.MOs, y = Correlation.fz)) +
+    geom_smooth(method="lm", alpha = .25, size = 1.5) +
+    labs(title = "Age Predicts Pattern Similarity",
+       subtitle = "As age increases, pattern similarity decreases.",
+       x = "Age (in Months)", 
+       y ="Mean Correlative Value (Fisher's Z)",
+       caption = "p > 0.05: N.S. \np < 0.05: * \np < 0.01: ** \np < 0.001: ***") +
+    coord_cartesian(ylim=c(-1, 1)) +
+    theme_solarized()
+```
+
+Quite a range! There are a ton of other options which you can review in the ggthemes documentation. 
+
+```{r Learning about ggthemes package, message=FALSE}
+?ggthemes
+```
+
+# ----- Modifying Text Elements -----
+
+For the sake of time, we're going to move onto the last thing I usually do, and that's modify the appearance of the text using theme commands, It drives me nuts that the title is off-center and that the "p"'s in the caption are misaligned, so we're going to run a series of commands to correct this.
+
+```{r Modifying Text Elements w/ ggplot, message=FALSE}
+ggplot(df, aes(x = Age.MOs, y = Correlation.fz)) +
+    geom_smooth(method="lm", alpha = .25, size = 1.5) +
+    labs(title = "Age Predicts Pattern Similarity",
+       subtitle = "As age increases, pattern similarity decreases.",
+       x = "Age (in Months)", 
+       y ="Mean Correlative Value (Fisher's Z)",
+       caption = "p > 0.05: N.S. \np < 0.05: * \np < 0.01: ** \np < 0.001: ***") +
+    coord_cartesian(ylim=c(-1, 1)) +
+    theme_classic() +
+    theme(plot.title = element_text(face="bold", size=13, hjust = 0.5)) +
+    theme(plot.subtitle = element_text(face = "italic", size = 10, hjust = 0.5)) +
+    theme(plot.caption = element_text(face = "italic", size = 8, hjust = 0.0)) +
+    theme(axis.title = element_text(size = 12)) +
+    theme(axis.text.x = element_text(size = 14, color = "Black")) +
+    theme(axis.text.y = element_text(size = 14, color = "Black"))
+```
+
+As you can see, we added several new lines that all utilize the theme function. Within each line, we then specify what element of the plot we are targeting, whether it be plot subtitle, plot caption, or anything else. We then note that we are specifically modifying the text of each of these elements. Then, just like with the geom_ series of functions, there are a massive number of argumetns which we could utilize to change the color of the text, the orientation, the size, the face type, the font, and the centering. All of these are also well documented and there are a ton of blogs which can walk you through these. One note on the hjust (centering) argument: A value of 0 left-justifies the text (As we see with the caption), a value of 1 right justifies text, and a value of 0.5 centers it (as we see in the title). 
+
+One last note: later layers take precedence. So, if you give ggplot to arguments which affect the same plot element in a conflicting way (maybe you want tell it you want the X axis labeled "Bananas" early on, and then "Apples" at the end), ggplot will often not let you know that these arguments are in conflict, and just accept whatever argument came last (so your X axis will be named Apples). We're really just sort of scratching the surface of what we can do in R when it comes to visualizations, but hopefully this provides a good foundation for what is still to come. The next two modules will be much quicker and more focused. 
+
+# ----- Exercise -----
+
+Let's see you give it a show. Modify the code of the plot below so that the title and subtitle are right justified and the text of both axes appear blue in color. 
+```{r Exercise 1, message=FALSE}
+ggplot(df, aes(x = Age.MOs, y = Correlation.fz)) +
+    geom_smooth(method="lm", alpha = .25, size = 1.5) +
+    labs(title = "Age Predicts Pattern Similarity",
+       subtitle = "As age increases, pattern similarity decreases.",
+       x = "Age (in Months)", 
+       y ="Mean Correlative Value (Fisher's Z)",
+       caption = "p > 0.05: N.S. \np < 0.05: * \np < 0.01: ** \np < 0.001: ***") +
+    coord_cartesian(ylim=c(-1, 1)) +
+    theme_classic() +
+    theme(plot.title = element_text(face="bold", size=13, hjust = 0.5)) +
+    theme(plot.subtitle = element_text(face = "italic", size = 10, hjust = 0.5)) +
+    theme(plot.caption = element_text(face = "italic", size = 8, hjust = 0.0)) +
+    theme(axis.title = element_text(size = 12)) +
+    theme(axis.text.x = element_text(size = 14, color = "Black")) +
+    theme(axis.text.y = element_text(size = 14, color = "Black"))
+```
+
+<!-- Ideally, you should get something like this. -->
+<!-- ![Alt Text](Plots/Exercise 1 Solution) -->
+
+3.0. Exporting Figures
+======================================================
+
+It might seem weird focusing a whole lecture on just exporting your figures. Seems like if should be simple enough, right? and it kind of is. That is to say, if we wanted to export the last plot we created, we could simply right click the image and click "Save as". However, I've always found the quality to be lacking using that method. The plot geoms tend to look pixelated, the colors tend to be off, and the proportions are not what they looked to be in the preview. The best work around I have found uses the following format:
+
+First, we save whatever plot we want to export as a variable. I often just save it as "Plot" so that the script that follows is more standardized.
+ 
+```{r Example Visualization, message=FALSE}
+Plot <- ggplot(df, aes(x = Age.MOs, y = Correlation.fz)) + 
+    geom_smooth(method="lm", alpha = .25, size = 1.5)
+Plot
+```
+ 
+Then we use the following script. First, we set the working directory for where we want to save the image. We defined the filepath for Plots.Dir when we set up this script. Then, we tell R that we want to save a pdf under this file name, that will have the dimensions of 6 inches x 4 inches. We then must call what the image is that we are saving under that file name. Lastly, we tell R that we're done with this action by calling the dev.off() function. I then remove my ploy using the rm(Plot) function to keep my space clean. 
+
+```{r How to Export an Image as a PDF, message=FALSE, warning=FALSE}
+  setwd(Plots.Dir)
+  pdf("Plot Example.pdf", width = (6), height = (4))
+  Plot
+  dev.off()
+  rm(Plot)
+```  
+
+We then get a beautiful exported image with no pixelation in a pdf format. Unfortunately, pdfs can be a little more difficult incorporating into a manuscript or powerpoint than a traditional lower-resolution image format, but I often just use the Snip & Sketch tool in Windows to quickly convert the images to a .png or .jpeg when needed. Admittedly, it's not a great solution, but fits in well with my workflow. One advantage of this solution is that I don't need to manage multiple versions of the same image or worry whether I have the most up-to-date figure. If I make any changes upstream that would affect the appearance of a figure downstream, I simply rerun the whole script and the image overwrites the previous version that existed.   
+
+4.0. Accessibility and Interpretability Options
+===============================================================================
+
+In this module, we're going to build on the same plot we were just working on, so when you see this:
+
+```{r Last Visualization We Had Used, message=FALSE}
+ggplot(df, aes(x = Age.MOs, y = Correlation.fz)) +
+    geom_smooth(method="lm", alpha = .25, size = 1.5) +
+    labs(title = "Age Predicts Pattern Similarity",
+       subtitle = "As age increases, pattern similarity decreases.",
+       x = "Age (in Months)", 
+       y ="Mean Correlative Value (Fisher's Z)",
+       caption = "p > 0.05: N.S. \np < 0.05: * \np < 0.01: ** \np < 0.001: ***") +
+    coord_cartesian(ylim=c(-1, 1)) +
+    theme_classic() +
+    theme(plot.title = element_text(face="bold", size=13, hjust = 0.5)) +
+    theme(plot.subtitle = element_text(face = "italic", size = 10, hjust = 0.5)) +
+    theme(plot.caption = element_text(face = "italic", size = 8, hjust = 0.0)) +
+    theme(axis.title = element_text(size = 12)) +
+    theme(axis.text.x = element_text(size = 14, color = "Black")) +
+    theme(axis.text.y = element_text(size = 14, color = "Black"))
+```
+
+Just know we haven't changed it in any way yet. When we do make changes to this template, I'll highlight them by using hashtags and descriptions of what is changing.
+
+# ----- Coloring Geoms -----
+
+In the last module, we reviewed a few simple commands we can use to make just about any plot look more presentable. These were things that I do for almost any plot I create, but as we go further into these modules, I'm going to get progressively more niche in the commands I use. Now, as I conceptualize it, we're at the stage of functions we should certainly always consider, but might not always be right for the situation or data. 
+
+To start off, you might notice I was going on and on about how much control ggplot2 gives you in the last module, but I never even changed the color of the regression line. ggplot2 makes it super simple to make quick color changes by just naming it in the geom_smooth command. Let's say we want the regression line to be red instead:
+
+```{r Coloring Geoms w/ ggplot2, message=FALSE}
+ggplot(df, aes(x = Age.MOs, y = Correlation.fz)) +
+    geom_smooth(method="lm", alpha = .25, size = 1.5, color = "Red") + #I added the "color = "Red"" argument here
+    labs(title = "Age Predicts Pattern Similarity",
+       subtitle = "As age increases, pattern similarity decreases.",
+       x = "Age (in Months)", 
+       y ="Mean Correlative Value (Fisher's Z)",
+       caption = "p > 0.05: N.S. \np < 0.05: * \np < 0.01: ** \np < 0.001: ***") +
+    coord_cartesian(ylim=c(-1, 1)) +
+    theme_classic() +
+    theme(plot.title = element_text(face="bold", size=13, hjust = 0.5)) +
+    theme(plot.subtitle = element_text(face = "italic", size = 10, hjust = 0.5)) +
+    theme(plot.caption = element_text(face = "italic", size = 8, hjust = 0.0)) +
+    theme(axis.title = element_text(size = 12)) +
+    theme(axis.text.x = element_text(size = 14, color = "Black")) +
+    theme(axis.text.y = element_text(size = 14, color = "Black"))
+```
+
+We can also use hex codes so as to standardize our colors across programs and platforms:
+
+```{r Coloring Geoms w/ Hex Codes w/ ggplot 2, message=FALSE}
+ggplot(df, aes(x = Age.MOs, y = Correlation.fz)) +
+    geom_smooth(method="lm", alpha = .25, size = 1.5, color = "#FF0000") + #I added the "color = "#FF0000"" argument here
+    labs(title = "Age Predicts Pattern Similarity",
+       subtitle = "As age increases, pattern similarity decreases.",
+       x = "Age (in Months)", 
+       y ="Mean Correlative Value (Fisher's Z)",
+       caption = "p > 0.05: N.S. \np < 0.05: * \np < 0.01: ** \np < 0.001: ***") +
+    coord_cartesian(ylim=c(-1, 1)) +
+    theme_classic() +
+    theme(plot.title = element_text(face="bold", size=13, hjust = 0.5)) +
+    theme(plot.subtitle = element_text(face = "italic", size = 10, hjust = 0.5)) +
+    theme(plot.caption = element_text(face = "italic", size = 8, hjust = 0.0)) +
+    theme(axis.title = element_text(size = 12)) +
+    theme(axis.text.x = element_text(size = 14, color = "Black")) +
+    theme(axis.text.y = element_text(size = 14, color = "Black"))
+```
+
+This is helpful if we're planning on publishing in a journal that doesn't use color figures, or we want to keep our figures of a certain theme. We can even get a little more fancy and add gradients to our plots like this:
+
+```{r Adding Gradients to Plots w/ ggplot2, message=FALSE}
+ggplot(df, aes(x = Age.MOs, y = Correlation.fz, color = Age.MOs)) + #I added the argument "color = Age.MOs" so that color should be applied to visualizations related to my x variable
+    geom_smooth(method="lm", alpha = .25, size = 1.5, aes(color = ..x..)) + #I honestly don't know why I need an aes() argument here, but I change color to "..x.."
+    scale_color_gradient2(low = "#1B9E77", high = "#D95F02", midpoint = 300) + # This function is new. I note the colors on the low and high ends, and then note where the colors blend.
+    labs(title = "Age Predicts Pattern Similarity",
+       subtitle = "As age increases, pattern similarity decreases.",
+       x = "Age (in Months)", 
+       y ="Mean Correlative Value (Fisher's Z)",
+       caption = "p > 0.05: N.S. \np < 0.05: * \np < 0.01: ** \np < 0.001: ***") +
+    coord_cartesian(ylim=c(-1, 1)) +
+    theme_classic() +
+    theme(plot.title = element_text(face="bold", size=13, hjust = 0.5)) +
+    theme(plot.subtitle = element_text(face = "italic", size = 10, hjust = 0.5)) +
+    theme(plot.caption = element_text(face = "italic", size = 8, hjust = 0.0)) +
+    theme(axis.title = element_text(size = 12)) +
+    theme(axis.text.x = element_text(size = 14, color = "Black")) +
+    theme(axis.text.y = element_text(size = 14, color = "Black"))
+```
+
+I will sometimes do this if the bivariate regression I'm presenting is leading to a moderation analysis, using the colors I used to distinguish the moderator levels on the gradient. 
+
+# ----- Facet Wrapping -----
+
+Speaking of moderators, though, let's talk about facet wrapping. We'd mentioned it a little earlier when looking at assumption visualizations, and it can be useful in ggplot2, especially when we have multiple moderating factors that might be influencing a relationship. Let's pretend that we think that the valence of the stimuli might moderate the relationship between age and pattern similarity and, for whatever reason, we want to see it in separate panels. We can add three more functions to do that:
+
+```{r Facet Wrapping One Moderator w/ ggplot 2, message=FALSE}
+ggplot(df, aes(x = Age.MOs, y = Correlation.fz)) +
+    geom_smooth(method="lm", alpha = .25, size = 1.5) +
+    labs(title = "Age Predicts Pattern Similarity",
+       subtitle = "As age increases, pattern similarity decreases.",
+       x = "Age (in Months)", 
+       y ="Mean Correlative Value (Fisher's Z)",
+       caption = "p > 0.05: N.S. \np < 0.05: * \np < 0.01: ** \np < 0.001: ***") +
+    coord_cartesian(ylim=c(-1, 1)) +
+    theme(legend.position="none") +   # This will suppress the production of a superfluous legend
+    facet_wrap(.~Valence.Pair, scales='free', strip.position = "bottom") + # This facets the plot based upon the variable you note
+    theme_classic() +
+    theme(plot.title = element_text(face="bold", size=13, hjust = 0.5)) +
+    theme(plot.subtitle = element_text(face = "italic", size = 10, hjust = 0.5)) +
+    theme(plot.caption = element_text(face = "italic", size = 8, hjust = 0.0)) +
+    theme(axis.title = element_text(size = 12)) +
+    theme(axis.text.x = element_text(size = 14, color = "Black")) +
+    theme(axis.text.y = element_text(size = 14, color = "Black")) +
+    theme(panel.spacing = unit(0, "points"), # This command modifies the appearance and distancing of the faceting. 
+          strip.background = element_blank(),
+          strip.placement  = "outside",
+          strip.text = element_text(size=13,face = 'bold'))
+```
+
+The resulting plot might look a little squished on your display. You can better view it in a pop-out window using the first option in the output box to get a better look at it. Either way, we can now clearly see what this relationship looks like as moderated by valence. We can get even more complex and add a second moderator (ROI) with ease.
+
+```{r Facet Wrapping Two Moderator w/ ggplot 2, message=FALSE}
+ggplot(df, aes(x = Age.MOs, y = Correlation.fz, group = ROI, color = ROI)) + #I'm letting R know that there's an additional variable (ROI) that I'd like it to group the data of the other two variables by and to color the resulting plots by.
+    geom_smooth(aes(group = ROI), method="lm", alpha = .25, size = 1.5) + # By adding aes(group = ROI), I'm letting R know I want it to produce a different geom_smooth regression line for each level of ROI
+    labs(title = "Age Predicts Pattern Similarity",
+       subtitle = "As age increases, pattern similarity decreases.",
+       x = "Age (in Months)", 
+       y ="Mean Correlative Value (Fisher's Z)",
+       caption = "p > 0.05: N.S. \np < 0.05: * \np < 0.01: ** \np < 0.001: ***") +
+    coord_cartesian(ylim=c(-1, 1)) +
+    theme(legend.position="none") +
+    facet_wrap(.~Valence.Pair, scales='free', strip.position = "bottom") +
+    theme_classic() +
+    theme(plot.title = element_text(face="bold", size=13, hjust = 0.5)) +
+    theme(plot.subtitle = element_text(face = "italic", size = 10, hjust = 0.5)) +
+    theme(plot.caption = element_text(face = "italic", size = 8, hjust = 0.0)) +
+    theme(axis.title = element_text(size = 12)) +
+    theme(axis.text.x = element_text(size = 14, color = "Black")) +
+    theme(axis.text.y = element_text(size = 14, color = "Black")) +
+    theme(panel.spacing = unit(0, "points"),
+          strip.background = element_blank(),
+          strip.placement  = "outside",
+          strip.text = element_text(size=13,face = 'bold'))
+```
+
+# ----- Using Prefabricated Color Palettes -----
+
+We aren't actually choosing what colors R uses to represent each category, though, and that could be a problem, especially for audiences that have atypical perceptions of color, like colorblindness. Luckily, ggplot, with a supplemental package known as RColorBrewer, has us covered there, too, with palettes specifically designed to be robust to colorblindness. 
+
+```{r Showing Colorblind-Friendly Palettes}
+display.brewer.all(colorblindFriendly = T)
+```
+
+I use Set2 most often. To show those off, I'm going to show the last plot without faceting and valence, but with a new color palette.  
+
+```{r Showing Off the Palette, message=FALSE}
+ggplot(df, aes(x = Age.MOs, y = Correlation.fz, group = ROI, color = ROI)) + 
+    geom_smooth(aes(group = ROI), method="lm", alpha = .25, size = 1.5) + 
+    labs(title = "Age Predicts Pattern Similarity",
+       subtitle = "As age increases, pattern similarity decreases.",
+       x = "Age (in Months)", 
+       y ="Mean Correlative Value (Fisher's Z)",
+       caption = "p > 0.05: N.S. \np < 0.05: * \np < 0.01: ** \np < 0.001: ***") +
+    coord_cartesian(ylim=c(-1, 1)) +
+    scale_color_brewer(palette = "Set2") + # We added this command, which colors whatever we note in the first line as "color =" in this palette.
+    theme_classic() +
+    theme(plot.title = element_text(face="bold", size=13, hjust = 0.5)) +
+    theme(plot.subtitle = element_text(face = "italic", size = 10, hjust = 0.5)) +
+    theme(plot.caption = element_text(face = "italic", size = 8, hjust = 0.0)) +
+    theme(axis.title = element_text(size = 12)) +
+    theme(axis.text.x = element_text(size = 14, color = "Black")) +
+    theme(axis.text.y = element_text(size = 14, color = "Black"))
+```
+
+# ----- Exercise -----
+
+Using elements from plots we've looked at in this section create a plot with the following criteria:
+* x = Age.MOs
+* y = Correlation.fz
+* Mod = Valence.Pair
+* Using the calc theme
+* Using a grayscale Color Brewer palette
+
+```{r Exercise 2}
+
+```
+
+<!-- Ideally, you should get something like this. -->
+<!-- ![Alt Text](Plots/Exercise 1 Solution) -->
+
+5.0. Examples of Visualizations w/ Qualitative Independent Variables
+====================================================================================================
+
+As we move into more complex, results-focused plotting, we're going to switch to a slightly uglier dataset that's better suited for many different analysis types.
+
+```{r Loading Second Dataframe}
+   load("C:/Users/Administrator/Desktop/COG Workshop/Dataframes/df2.rda")
+```
+
+Once again, let's take a look at the variables available to us:
+
+```{r Examining Second Dataframe}
+   describe(df)
+```
+
+Let's just quickly get familiar with a few variables of interest.
+
+This data was collected from participants who traversed a haunted house in 2019. They were asked to identify emotionally salient events, what emotions they felt, how strong those emotions were, and we later added variables related to the regulation of those emotional experiences. We have separate data for each participant on age, gender, depression (BDI), anxiety (STAI), and a few other covariates.
+
+While R and ggplot allow us to combine a near endless number of geoms and layers to present our data however we might want, I'm going to go over formulas that have worked well for me in the past for a bunch of different plot types in the hopes that if you ever have to create a plot of this type in the future, you could just steal my code, plug in your variables, modify a few numbers, and you will have the plot you need. I'm going to present each template and just highlight what's unique about it relative to other plot types or what changes I've made to produce what you see on your screen.
+
+# ----- Chi Square Plots -----
+
+To start, we're going to look at how I've visualized chi squares, which, you may know typically compare the frequency of different categories of qualitiative data. In this example, we have noted the emotional valence of every event that has been reported as well as whether the event was emotionally regulated. We wanted to know whether events negatively valenced events were regulated more frequently than positively valenced events. As such, we modified the bar plot geom in order to see the frequency of both negative and positive events that were either regulated or unregulated:
+
+```{r Chi Square Visualization w/ ggplot 2}
+ggplot(data = df, aes(x = Valence, color = Regulated, fill = Regulated)) + #NOTE: We do not have a Y variable, but we noted Regulated as a sort of moderator
+    geom_bar() + #Geom_bar allows us to produce the bar geoms
+    scale_x_discrete("Valence", breaks = c("Negative", "Positive")) + #This command allows us to add labels to the x axis
+    scale_y_continuous(breaks = c(0,100,200,300,400,500,600)) + #This command dictates what points we can visually see on the scale.
+    scale_color_brewer(palette = "Dark2") + #This command dictates what color outlines our geoms
+    scale_fill_brewer(palette = "Set2") + #This command dictates what colors fill our geoms
+    labs(title = "Differences in Event Regulation By Valence",
+       subtitle = "Negative Experiences Were Regulated More Often Than Positive Ones",
+       x =NULL, 
+       y ="Frequency",
+       caption = "p < 0.001") + #In the caption, I chose to note the outcome of the statistical test 
+    coord_cartesian(ylim=c(0.0, 650.0)) +
+    theme_classic() +
+    theme(plot.title = element_text(face="bold", size=13, hjust = 0.5)) +
+    theme(plot.subtitle = element_text(size = 10, hjust = 0.5, face = "italic")) +
+    theme(plot.caption = element_text(size = 8, hjust = 0.0, face = "italic")) +
+    theme(axis.title = element_text(size = 16)) +
+    theme(axis.text.x = element_text(size = 14, color = "Black")) +
+    theme(axis.text.y = element_text(size = 12, color = "Black")) 
+```
+
+You'll first notice that we have no Y variable, because the dependent variable in a chi square test is frequency. We do note the importance of the Regulated variable in the color and fill commands of the first line, meaning that our geoms will have unique colors based upon what category of "Regulated" they fall under. In the context of a geom_bar plot, the color argument will inform geom outlines, while fill will inform geom fill colors. So, as you can see, "Not regulated events, are represented by an aqua fill with a slightly darker aqua outline, while Regulated events are represented by a peach color with a darker peach outline. We truly don't need both the fill and the outline; I just wanted to demonstrate both, and I kind of think it looks nice. 
+
+Moving on, we see the bar_geom which is new for us. We could provide many of the same commands we'd provided to geom_smooth, including size and color, but the defaults in R tend to work fine for the geom_bar command. 
+
+Following our geom, we see a new class of commands which we have not used before: scales. Scales affect our axes and follow a simple format. In this case, we use scale_x_discrete because our x axis is representing qualitative data. Had X been representing quantitative data, we would use the scale_x_continuous command instead. As you can see, we use that command on our Y axis, which is representing quantiative data (i.e., frequency). These commands will allow us to set labels and decide what values we can visually see (using the breaks command). If you remember I'd mentioned in a previous lecture that we may sometimes give GGplot conflicting commands, in which case, it will choose the latter. This is the most common culprit if you also use the labs function like I do. The labs function, unfortunately, won't allow me to name the individuals bars, though; so while I could name the X axis "Valence", I wouldn't be able to label the two bars as Negative and Positive, which is why this command is necessary. Using the scale_y_continuous function, I can tell R that I specifically want to see tick marks for the values listed. 
+
+Similarly, in the scale family of functions, we see scale_color_brewer and scale_fill_brewer. These are both products of the RColorBrewer package and allow us to note which palettes from the package that we want to use to color the outline and the fill.
+
+All other elements had been covered in our previous review of the anatomy of a ggplot. 
+
+# ----- One Sample T-Test Plots -----
+
+Another common statistical test we might run into is that of the one-sample t-test in which we want to determine whether the mean of a sample is substantially different from mu (typically set at 0). In this particular example, we're going to want to know whether the haunted house we put people through sufficiently elicited emotion, so we're measuring whether positive and negative intensity were statistically significant from 1 (which I've noted in the caption). 
+
+```{r One Sample T Test Plots w/ ggplot2}
+Plot <- ggplot(df, aes(x = Valence, y = Emo.Extent, color = Valence, fill = Valence)) + #Note that we do have a Y variable here
+    geom_boxplot(notch = T, alpha= 0.8) + # Note that we are using a geom_boxplot
+    geom_signif(textsize = 10, annotations = "***", y_position = 7, xmin = 1, xmax = 1, tip_length = 0, color = "Black") + # Note that we have not see this argument in the past
+    geom_signif(textsize = 10, annotations = "***", y_position = 7, xmin = 2, xmax = 2, tip_length = 0, color = "Black") +
+    scale_x_discrete("Valence", breaks = c("Negative", "Positive")) +
+    scale_color_brewer(palette = "Dark2") +
+    scale_fill_brewer(palette = "Set2") +
+    labs(title = "Emotional Intensity By Valence",
+       subtitle = "Our Manipulation Elicited Both Positive and Negative Emotions",
+       x =NULL, 
+       y ="Emotional Intensity (Scale 1-7)",
+       caption = "mu = 1") +
+    coord_cartesian(ylim=c(.5, 7.5)) +
+    theme_classic() +
+    theme(legend.position="none") +
+    theme(plot.title = element_text(face="bold", size=16, hjust = 0.5)) +
+    theme(plot.subtitle = element_text(size = 10, hjust = 0.5, face = "italic")) +
+    theme(plot.caption = element_text(size = 8, hjust = 0.0, face = "italic")) +
+    theme(axis.title = element_text(size = 16)) +
+    theme(axis.text.x = element_text(size = 14, color = "Black")) +
+    theme(axis.text.y = element_text(size = 14, color = "Black")) 
+  Plot
+
+```
+
+This plot is very similar to our chi square plot with a few exceptions. Namely, now our Y variable is specifically defined by the range of our emotional intensity variable, so we must define what Y is for R to plot the variable correctly. We then call the boxplot geom which contains a "notch" argument. If we set "Notch" to False it will remove the v shaped cut from each of the plots noting where the mean sits. Lastly, note the new addition of the geom_signif function. This is one of my favorites, though, admittedly it can be quite a pain to get use to. This allows us to add significance indicators, like the stars you see here, directly on our plots. If we're plotting a variable with only a single category, it will automatically place the stars for us. However, here, because we have both positive and negative valence, we need to manually set the position using the y_position, xmin, and xmax arguments, which take a lot of trial and error.  
+
+# ----- Two-Sample T-Test & ANOVA Plots -----
+
+Now we're going to move on to a slightly more complex visualization; that being two-sample t-tests with 95% confidence intervals included. There are a lot of ways to approach the isuses of error bars. As best as I can tell, ggplot does not have a native function to accurately estimate 95% confidence intervals (though it will do standard error). As such we're going to briefly dive into the realm of custom built functions. You don't need to understand what's going on in the following lines of code. You can just know that it will create a new dataframe from our original dataframe that captures both the mean and 95% confidence intervals. 
+
+``` {r Summary Function}
+Summary <- function(data=NULL, measurevar, groupvars=NULL, na.rm=FALSE,
+                      conf.interval=.95, .drop=TRUE) {
+  length2 <- function (x, na.rm=FALSE) {
+    if (na.rm) sum(!is.na(x))
+    else       length(x)
+  }
+  datac <- ddply(data, groupvars, .drop=.drop,
+                 .fun = function(xx, col) {
+                   c(N    = length2(xx[[col]], na.rm=na.rm),
+                     mean = mean   (xx[[col]], na.rm=na.rm),
+                     sd   = sd     (xx[[col]], na.rm=na.rm))
+                 },
+                 measurevar
+  )
+  datac <- plyr::rename(datac, c("mean" = measurevar))
+  datac$se <- datac$sd / sqrt(datac$N)
+  ciMult <- qt(conf.interval/2 + .5, datac$N-1)
+  datac$ci <- datac$se * ciMult
+  return(datac)
+}
+```
+
+Once that code is ran, we have a custom function R is ready to use. We can use it with the following code:
+
+``` {r Creating Summary Dataframe 1}
+Summary <- Summary(data = df, measurevar = "Emo.Extent", groupvars = "Valence")
+```
+
+I believe each argument is fairly self-explanatory, but we can view the dataframe to get a better sense of what it just did: 
+
+``` {r Reviewing our Custom Summary Dataframe}
+head(Summary)
+```
+
+So now we have the sample size, mean, standard deviation, standard error, and confidence interval of the emotional intensity for both positive and negative emotions.
+
+Often times, for t-tests, we represent the data using bar graphs. However, many researchers have moved away from bar graphs due to tendencies to misinterpret the data in favor of alternatives, like point-line plots. We will be using a point-line plot here, but if you wanted to use a more traditional bar plot, instead, you could substitute the stat_summary argument with geom_bar().
+
+This will modify our plot as such:
+
+```{r Two Sample T Test Plots w/ ggplot2}
+ggplot(data = Summary, aes(x = Valence, y = Emo.Extent, color = Valence)) + #Note that the dataframe we reference is no longer df, but Summary
+    stat_summary(geom="point", fun = mean, size = 2) + # Note that we are using a stat_summary function rather than a geom_function
+    geom_errorbar(data = Summary, aes(ymin = Emo.Extent - ci, ymax = Emo.Extent + ci), size= 1, width=0.15) + #Note that we've never defined errorbars in the past
+    geom_signif(textsize = 10, annotations = "***", y_position = 6.3, xmin = 1, xmax = 2, tip_length = c(.8, .2), color = "Black") + # Note that we now add a bracket to show what comparison is significant. 
+    scale_x_discrete("Valence", breaks = c("Negative", "Positive")) +
+    scale_color_brewer(palette = "Dark2") +
+    labs(title = "Differences in Emotional Intensity By Valence",
+       subtitle = "Positive Affective Intensity Is Greater Than Negative Affective Intensity",
+       x =NULL, 
+       y ="Emotional Intensity (Scale 1-7)",
+       caption = NULL) +
+    coord_cartesian(ylim=c(1.0, 7.0)) +
+    theme_classic() +
+    theme(legend.position="none") +
+    theme(plot.title = element_text(face="bold", size=16, hjust = 0.5)) +
+    theme(plot.subtitle = element_text(size = 10, hjust = 0.5, face = "italic")) +
+    theme(plot.caption = element_text(size = 8, hjust = 0.0, face = "italic")) +
+    theme(axis.title = element_text(size = 16)) +
+    theme(axis.text.x = element_text(size = 14, color = "Black")) +
+    theme(axis.text.y = element_text(size = 14, color = "Black")) 
+```
+
+In order to add those accurate 95% confidence intervals, we're going to reference the Summary dataframe, not the standard df dataframe where this data originally existed. Additionally, to create the actual point at which the mean of each category exists, we use the stat_summary (or statistics summary) function, in which we first define the geom as a point, we note that it is a mean value, and define how large that point should be. We could realistically define the geom in any shape we'd like and there are many to choose from. We also see the addition of a geom_errorbar command which is where our confidence intervals come from. We can manipulate the thickness of the lines and how wide the caps are with size and width respectively. Lastly, we see that the geom_signif now produces a bracket to point to the two values it is comparing. Again, I have to manually create this via trial and error by modifying the tip_length, and xmin and xmax arguments, but I like the addition. 
+
+Please note, this custom function will not produce accurate confidence intervals if you are running a mixed effects ANOVA, as it will not differentiate between within subject and between subject effects! However, we can use it with your standard between subject ANOVA by including two grouping variables:
+
+``` {r Summary Function Again}
+Summary <- function(data=NULL, measurevar, groupvars=NULL, na.rm=FALSE,
+                      conf.interval=.95, .drop=TRUE) {
+  length2 <- function (x, na.rm=FALSE) {
+    if (na.rm) sum(!is.na(x))
+    else       length(x)
+  }
+  datac <- ddply(data, groupvars, .drop=.drop,
+                 .fun = function(xx, col) {
+                   c(N    = length2(xx[[col]], na.rm=na.rm),
+                     mean = mean   (xx[[col]], na.rm=na.rm),
+                     sd   = sd     (xx[[col]], na.rm=na.rm))
+                 },
+                 measurevar
+  )
+  datac <- plyr::rename(datac, c("mean" = measurevar))
+  datac$se <- datac$sd / sqrt(datac$N)
+  ciMult <- qt(conf.interval/2 + .5, datac$N-1)
+  datac$ci <- datac$se * ciMult
+  return(datac)
+}
+```
+
+``` {r Creating Summary Dataframes 2}
+Summary <- Summary(df, "Emo.Extent", c("Regulated", "Valence"))
+```
+
+```{r ANOVA Plots w/ ggplot2}
+ggplot(data = Summary, aes(x = Regulated, y = Emo.Extent, color = Valence)) + #Note that we replace the X var with the newly introduced variable
+    stat_summary(geom="point", fun = mean, size = 2, position = position_dodge(width = 0.5)) + #Note the addition of the position argument
+    geom_errorbar(data = Summary, aes(ymin = Emo.Extent - ci, ymax = Emo.Extent + ci), size= 1, width=0.15, position = position_dodge(width = 0.5)) + #Note the addition of the position argument
+    geom_signif(textsize = 8, annotations = "***", y_position = 6.8, xmin = 1, xmax = 2, tip_length = c(.1, .3), color = "Black") +
+    geom_signif(textsize = 5, annotations = "***", y_position = 6.3, xmin = .875, xmax = 1.125, tip_length = c(.6 , .05), color = "Black") +
+    geom_signif(textsize = 5, annotations = "N.S.", y_position = 6.0, xmin = 1.875, xmax = 2.125, tip_length = c(.2, .1), color = "Black") +
+    scale_x_discrete("Regulation Status", breaks = c("Not Regulated", "Regulated")) +
+    scale_y_continuous(breaks = c(2,4,6)) +
+    labs(title = "Differences in Emotional Intensity By Valence and Whether Events Were Regulated",
+       subtitle = "The Difference Between Valences is Greater When Not Regulated",
+       x =NULL, 
+       y ="Emotional Intensity (Scale 1-7)",
+       caption = NULL) +
+    scale_color_brewer(palette = "Dark2") +
+    coord_cartesian(ylim=c(1.0, 7.0)) +
+    theme_classic() +
+    theme(plot.title = element_text(face="bold", size=13, hjust = 0.5)) +
+    theme(plot.subtitle = element_text(size = 10, hjust = 0.5, face = "italic")) +
+    theme(plot.caption = element_text(size = 8, hjust = 0.0, face = "italic")) +
+    theme(axis.title = element_text(size = 16)) +
+    theme(axis.text.x = element_text(size = 14, color = "Black")) +
+    theme(axis.text.y = element_text(size = 14, color = "Black")) 
+```
+
+The most notable addition in this plot is the position = point_dodge command, which is what tells R to spatially separate the valenced means around the regulated and not regulated columns. If we did not include that argument, the two would occupy the same space:   
+
+```{r ANOVA Gone Wrong}
+ggplot(data = Summary, aes(x = Regulated, y = Emo.Extent, color = Valence)) + 
+    stat_summary(geom="point", fun = mean, size = 2) + #Note the lack of the position argument
+    geom_errorbar(data = Summary, aes(ymin = Emo.Extent - ci, ymax = Emo.Extent + ci), size= 1, width=0.15) + #Note the lack of the position argument
+    geom_signif(textsize = 8, annotations = "***", y_position = 6.8, xmin = 1, xmax = 2, tip_length = c(.1, .3), color = "Black") +
+    geom_signif(textsize = 5, annotations = "***", y_position = 6.3, xmin = .875, xmax = 1.125, tip_length = c(.6 , .05), color = "Black") +
+    geom_signif(textsize = 5, annotations = "N.S.", y_position = 6.0, xmin = 1.875, xmax = 2.125, tip_length = c(.2, .1), color = "Black") +
+    scale_x_discrete("Regulation Status", breaks = c("Not Regulated", "Regulated")) +
+    scale_y_continuous(breaks = c(2,4,6)) +
+    labs(title = "Differences in Emotional Intensity By Valence and Whether Events Were Regulated",
+       subtitle = "The Difference Between Valences is Greater When Not Regulated",
+       x =NULL, 
+       y ="Emotional Intensity (Scale 1-7)",
+       caption = NULL) +
+    scale_color_brewer(palette = "Dark2") +
+    coord_cartesian(ylim=c(1.0, 7.0)) +
+    theme_classic() +
+    theme(plot.title = element_text(face="bold", size=13, hjust = 0.5)) +
+    theme(plot.subtitle = element_text(size = 10, hjust = 0.5, face = "italic")) +
+    theme(plot.caption = element_text(size = 8, hjust = 0.0, face = "italic")) +
+    theme(axis.title = element_text(size = 16)) +
+    theme(axis.text.x = element_text(size = 14, color = "Black")) +
+    theme(axis.text.y = element_text(size = 14, color = "Black")) 
+```
+
+# ----- Exercise -----
+
+Let's pretend we wanted to visualize the results of an ANOVA which examined the whether there were differences in regulation extent (Reg.Extent) by the regulation strategy used (Strat.Cat) and the valence of the emotional experience (Valence). Ignoring labeling, how might we visualize that, using the templates we'd reviewed in this section? 
+
+```{r Exercise 3}
+
+```
+
+6.0. Examples of Visualizations w/ Quantitative Independent Variables 
+======================================================================================================
+
+This section should be quick, because we'd been reviewing some regression examples in earlier sections. In general, I find the range of ease in creating regression visualizations in ggplot2 to be very wide. On one hand, ggplot makes bivariate and multivariate linear regression a breeze to produce. On the other hand, I once spend about a week straight trying to figure out how to reliably produce binary logistic regressions in R as conveniently as I could in SPSS. Hopefully, having all of these templates in one place will save you the trouble in the future, should you ever need to run any of these. 
+
+# ----- Bivariate Linear Regression Plots -----
+
+We are going to start by producing a fairly straight forward bivariate linear regression visualizing the relationship between the intensity of an emotional experience and how much effort the person put into trying to regulate that emotional experience. In order to spice things up a bit (in the most mild lecture possible), we're going to try visualizing the individual datapoints that influence the trajectory of the regression line: 
+
+```{r Basic Regression Model Plot w/ ggplot2, message=FALSE, warning=FALSE}
+ggplot(data = df, aes(x = Emo.Extent.z, y = Reg.Extent.z, color = Emo.Extent.z)) +
+    stat_smooth(aes(color = ..x..), method="lm", alpha = .25, size = 2) +
+    geom_point()+ # We added this argument
+    scale_x_continuous(breaks = c(-3,-2,-1,0,1)) +
+    scale_y_continuous(breaks = c(-2,-1,0,1,2)) +
+    scale_color_gradient2(low = "#1B9E77", high = "#D95F02", midpoint = median(-1)) +
+    labs(title = "Regulation Extent By Intensity of Emotion",
+       subtitle = "Affective Intensity Predicts Regulation Extent (B = 0.181)",
+       x = "Intensity of Emotion (z)", 
+       y ="Regulation Extent (z)",
+       caption = "p < 0.001") +
+    coord_cartesian(xlim=c(-3.0, 1.5), ylim=c(-2.5, 2.5)) +
+    theme_classic() +
+    theme(legend.position="none") +
+    theme(plot.title = element_text(face="bold", size=13, hjust = 0.5)) +
+    theme(plot.subtitle = element_text(size = 10, hjust = 0.5, face = "italic")) +
+    theme(plot.caption = element_text(size = 8, hjust = 0.0, face = "italic")) +
+    theme(axis.title = element_text(size = 16)) +
+    theme(axis.text.x = element_text(size = 14, color = "Black")) +
+    theme(axis.text.y = element_text(size = 14, color = "Black")) 
+```
+
+# ----- Jittering Datapoints -----
+
+And it's that simple! Just by adding the geom_point command, we can see where out data points are in the same gradient as our regression line. However, we still don't have a sense for the density of the distribution. How many datapoints are actually catured at each point? One solution is to add a slight bit of randomness to the position of the data points such that they are no longer overlapping (i.e., jittering). We're gonna run the same code with a slight tweak:  
+
+```{r Jittering Data Points w/ ggplot2, message=FALSE, warning=FALSE}
+ggplot(data = df, aes(x = Emo.Extent.z, y = Reg.Extent.z, color = Emo.Extent.z)) +
+    stat_smooth(aes(color = ..x..), method="lm", alpha = .25, size = 2) +
+    geom_point(position = "jitter")+ #We've modified this argument
+    scale_x_continuous(breaks = c(-3,-2,-1,0,1)) +
+    scale_y_continuous(breaks = c(-2,-1,0,1,2)) +
+    scale_color_gradient2(low = "#1B9E77", high = "#D95F02", midpoint = median(-1)) +
+    labs(title = "Regulation Extent By Intensity of Emotion",
+       subtitle = "Affective Intensity Predicts Regulation Extent (B = 0.181)",
+       x = "Intensity of Emotion (z)", 
+       y ="Regulation Extent (z)",
+       caption = "p < 0.001") +
+    coord_cartesian(xlim=c(-3.0, 1.5), ylim=c(-2.5, 2.5)) +
+    theme_classic() +
+    theme(legend.position="none") +
+    theme(plot.title = element_text(face="bold", size=13, hjust = 0.5)) +
+    theme(plot.subtitle = element_text(size = 10, hjust = 0.5, face = "italic")) +
+    theme(plot.caption = element_text(size = 8, hjust = 0.0, face = "italic")) +
+    theme(axis.title = element_text(size = 16)) +
+    theme(axis.text.x = element_text(size = 14, color = "Black")) +
+    theme(axis.text.y = element_text(size = 14, color = "Black")) 
+```
+
+Now we can actually see how negatively skewed this dataset is! Alternatively, we could have just wrote geom_jitter() and gotten the same result. Now also, note that we see an exmaple of ggplot building this visual in sequential layers. Because we added the geom points after the command for the regression line, they sit on top of the regression line. If we wanted to reverse that, we should list the geom_point command first, followed by the regression line arguments. 
+
+# ----- Moderation & Multivariate Linear Regression Plots -----
+
+Once again, we've already taken a look at moderation visualizations, so there's nothing within this code that should be totally new to us. Note that we are running the same analysis as above, but we're seeing whether valence moderates the relationship, so the relationship between intensity and regulation may be different for positive and negative emotions. Just to spice things up a little, I'm going to modify the size and shape of the geom points and add a fill color that's based on valence:
+
+```{r Moderation Model Plots w/ ggplot2, message=FALSE, warning=FALSE}
+ggplot(data = df, aes(x = Emo.Extent.z, y = Reg.Extent.z, fill = Valence, group = Valence, color = Valence)) + # We added a fill argument here
+    geom_jitter(size = 1, shape = 25) + #We added the size and shape arguments
+    stat_smooth(aes(color = Valence), method="lm", alpha = .25, size = 2) +
+    scale_x_continuous(breaks = c(-3,-2,-1,0,1)) +
+    scale_y_continuous(breaks = c(-2,-1,0,1,2)) +
+    scale_color_brewer("Valence", labels= c("Negative", "Positive"), palette = "Dark2") +
+    scale_fill_brewer("Valence", labels= c("Negative", "Positive"), palette = "Set2") + # We added this function
+    labs(title = "Regulation Extent By Intensity and Valence of Emotion",
+       subtitle = "The Interaction Between Valence and Intensity Did Not Predict Regulation",
+       x = "Intensity of Emotion (z)",
+       y ="Regulation Extent (z)",
+       caption = NULL) +
+    coord_cartesian(xlim=c(-3.0, 1.5), ylim=c(-2.5, 2.5)) +
+    theme_classic() +
+    theme(legend.position="none") +
+    theme(plot.title = element_text(face="bold", size=13, hjust = 0.5)) +
+    theme(plot.subtitle = element_text(size = 10, hjust = 0.5, face = "italic")) +
+    theme(plot.caption = element_text(size = 8, hjust = 0.0, face = "italic")) +
+    theme(axis.title = element_text(size = 16)) +
+    theme(axis.text.x = element_text(size = 14, color = "Black")) +
+    theme(axis.text.y = element_text(size = 14, color = "Black"))
+```
+
+As you can clearly see, we have different shaped points now and the Set2 Palette has affected the fill of those points, as well as the standard error ribbon. You might notice that I entered "25" to get the upside down triangles I did. Unfortunately, as best as I can tell, what shape corresponds to which number is completely aribtrary. When I need to know what number I need, I usually just google "geom_point shapes". None of that is very important to the bones of a moderation analysis visualization. What I do want to note is that there are far simpler ways to visualize moderation analyses. We could run ggplot without all the extra fluff I like to include, but we could also use the interaction package to get a super quick copy of what we saw above (assuming that we've run the model already):
+
+```{r Basic Moderation Plot w/ interaction}
+m1 <- lm(Reg.Extent.z ~ Emo.Extent.z * Valence, data = df)
+interact_plot(m1, pred = Emo.Extent.z, modx = Valence, plot.points = TRUE)
+```
+
+interaction will allow us to get a little more complicated if we want with additional arguments:
+
+```{r Advanced Moderation Plot w/ interaction}
+m1 <- lm(Reg.Extent.z ~ Emo.Extent.z * Valence, data = df)
+interact_plot(m1, 
+              pred = Emo.Extent.z, 
+              modx = Valence, 
+              plot.points = TRUE,
+              x.label = "Intensity of Emotion (z)",
+              y.label = "Regulation Extent (z)", 
+              jitter = TRUE, 
+              main.title = "Regulation Extent By Intensity and Valence of Emotion")
+```
+
+It's more simplistic, but we could also use the native plot capabilities of R and see the relationships faceted: 
+
+```{r Simple Moderation Visualization w/ Base R}
+m1 <- lm(Reg.Extent.z ~ Emo.Extent.z * Valence, data = df)
+plot(effect("Emo.Extent.z:Valence", m1, grid = TRUE))
+```
+
+# ----- Binary Logistic Regression Plots -----
+
+Alright, now we've gotten through the simple stuff. We're going to move on to binary logistic regression, which honestly isn't very complex either (once you know the solution). In order to do this effectively, we need to pull in the effects package in order to plot the probabilities which are characteristics of a binary logistic regression. In effect this, is going to be very similar to the custom Summary function we used to plot t-tests and ANOVAs. We also need a slightly modified version of the dataframe we've already been using.
+
+```{r Loading Third Dataframe}
+   load("C:/Users/Administrator/Desktop/COG Workshop/Dataframes/df3.rda")
+```
+
+We must first plot the formula of the binary logistic regression that we want to measure. For those who may be unfamiliar with this type of analysis, we use a quantitative predictor to determine a binary outcome. In this case, we are determining whether the intensity of an emotional experience increases the probability of choosing a specific regulation strategy (Either reappraisal or disengagement). 
+
+```{r Binary Logistic Regression Model}
+m1 <- glm(Strat.Cat ~ Emo.Extent.z, data = df, family = binomial)
+```
+
+We then have the effect package predict the probability of either outcome at various levels of the variable Emo.Extent.z. Because this is Z-Scored, I chose values in increments of 0.01 between -3 and +3, but you could subsequent whatever values fit the range of your predictor variable. We then must convert the resulting product into a dataframe:
+
+```{r Using the Effects Package to Predict Probabilites for the First Model}
+m1.e <- effect("Emo.Extent.z", m1 , xlevels=list(Emo.Extent.z = seq(-3.0,3.0,0.01))) 
+m1.e <-as.data.frame(m1.e)
+```
+
+Then, we are going to use said dataframe as the source for our plot. Our criteron variable is the fitted probability of choosing either binary outcomes, which the effects package fittingly always names "fit". We the simply call for a geom_line and geom_ribbon, and the rest is largely the same:
+
+```{r Binary Logistic Regression Plot w/ ggplot2 and effects}
+ggplot(data = m1.e, aes(x = Emo.Extent.z, y = fit)) + #Dataframe and y variable are new
+    geom_line(size = 3) + #This is a new addition
+    geom_ribbon(aes(ymin=lower, ymax=upper), alpha = 0.15) + #This is a new addition; we set the upper and lower limits to "upper" and "lower" which are automatically defined in our effects dataframe. 
+    scale_x_continuous(breaks = seq(-3,3,1)) +
+    scale_y_continuous(labels = c("Reappraisal", "0.2", "0.4", "0.6", "0.8","Disengagement"), breaks = seq(0,1,0.2)) +
+    labs(title = "Strategy Choice By Intensity of Emotion",
+       subtitle = "Affective Intensity Does Not Predict Strategy Choice",
+       x = "Intensity of Emotion (z)", 
+       y ="Strategy Choice",
+       caption = NULL) +
+    coord_cartesian(xlim=c(-3.0, 3.0), ylim=c(0,1)) +
+    theme_classic() +
+    theme(legend.position="none") +
+    theme(plot.title = element_text(face="bold", size=13, hjust = 0.5)) +
+    theme(plot.subtitle = element_text(size = 10, hjust = 0.5, face = "italic")) +
+    theme(plot.caption = element_text(size = 8, hjust = 0.0, face = "italic")) +
+    theme(axis.title = element_text(size = 16)) +
+    theme(axis.text.x = element_text(size = 14, color = "Black")) +
+    theme(axis.text.y = element_text(size = 14, color = "Black")) 
+```
+
+The resulting plot doesn't look much like that traditional S curve we see in binary logistic regression, but that's because we failed to support our hypothesis. If we zoom out by modifying the range of our effects dataframe and the scope of our coord_cartesian command . . . 
+
+```{r Zooming Out of the Binary Logistic regression Plot}
+m1.e <- effect("Emo.Extent.z", m1 , xlevels=list(Emo.Extent.z = seq(-30.0,30.0,0.01))) 
+m1.e <-as.data.frame(m1.e)
+ggplot(data = m1.e, aes(x = Emo.Extent.z, y = fit)) + #Dataframe and y variable are new
+    geom_line(size = 3) + #This is a new addition
+    geom_ribbon(aes(ymin=lower, ymax=upper), alpha = 0.15) + #This is a new addition; we set the upper and lower limits to "upper" and "lower" which are automatically defined in our effects dataframe. 
+    scale_x_continuous(breaks = seq(-3,3,1)) +
+    scale_y_continuous(labels = c("Reappraisal", "0.2", "0.4", "0.6", "0.8","Disengagement"), breaks = seq(0,1,0.2)) +
+    labs(title = "Strategy Choice By Intensity of Emotion",
+       subtitle = "Affective Intensity Does Not Predict Strategy Choice",
+       x = "Intensity of Emotion (z)", 
+       y ="Strategy Choice",
+       caption = NULL) +
+    coord_cartesian(xlim=c(-30.0, 30.0), ylim=c(0,1)) +
+    theme_classic() +
+    theme(legend.position="none") +
+    theme(plot.title = element_text(face="bold", size=13, hjust = 0.5)) +
+    theme(plot.subtitle = element_text(size = 10, hjust = 0.5, face = "italic")) +
+    theme(plot.caption = element_text(size = 8, hjust = 0.0, face = "italic")) +
+    theme(axis.title = element_text(size = 16)) +
+    theme(axis.text.x = element_text(size = 14, color = "Black")) +
+    theme(axis.text.y = element_text(size = 14, color = "Black")) 
+```
+
+We see that we would have to have VERY Intense emotional reactions in order for intensity to predict strategy choice. Hopefully your hypotheses don't suffer from the same fate that this one had!
+
+Adding moderators isn't much more complicated than what we'd done in the past. We need to respecify our formula:
+
+``` {r Second Binary Logistic Regression Model}
+m2 <- glm(Strat.Cat ~ Emo.Extent.z * Valence, data = df, family = binomial)
+```
+
+Rerun the effects command based on that new formula and based upon the effect of the interaction: 
+
+```{r Using the Effects Package to Predict Probabilites for the Second Model}
+m2.e <- effect("Emo.Extent.z:Valence",m2,xlevels=list(Emo.Extent.z=seq(-3.0,3.0,0.01))) 
+m2.e <-as.data.frame(m2.e)
+```
+
+and then just add the group and color arguments within the first line (with an additional scale_color_brewer command if you want to differentiate between them):
+
+```{r Moderated Binary Logistic Regression Plot w/ ggplot2 and effects}
+ggplot(data = m2.e, aes(x = Emo.Extent.z, y = fit, group = Valence, color = Valence)) + # We added group and color here
+    geom_line(size = 3) +
+    geom_ribbon(aes(ymin=lower, ymax=upper), alpha = 0.15) +
+    scale_x_continuous(breaks = seq(-3,3,1)) +
+    scale_y_continuous(labels = c("Reappraisal", "0.2", "0.4", "0.6", "0.8","Disengagement"), breaks = seq(0,1,0.2)) +
+    scale_color_brewer(palette = "Dark2")+ # We added this to differentiate.
+    labs(title = "Strategy Choice By Intensity of Emotion and Valence",
+       subtitle = "Affective Intensity and Valence Do Not Predict Strategy Choice",
+       x = "Intensity of Emotion (z)", 
+       y ="Strategy Choice",
+       caption = NULL) +
+    coord_cartesian(xlim=c(-3.0, 3.0), ylim=c(0,1)) +
+    theme_classic() +
+    theme(plot.title = element_text(face="bold", size=13, hjust = 0.5)) +
+    theme(plot.subtitle = element_text(size = 10, hjust = 0.5, face = "italic")) +
+    theme(plot.caption = element_text(size = 8, hjust = 0.0, face = "italic")) +
+    theme(axis.title = element_text(size = 16)) +
+    theme(axis.text.x = element_text(size = 14, color = "Black")) +
+    theme(axis.text.y = element_text(size = 14, color = "Black")) 
+```
