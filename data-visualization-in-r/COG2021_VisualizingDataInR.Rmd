@@ -1,11 +1,35 @@
 ---
-title: "Visualizing Data in R"
-author: "Mitchell, W.J."
-date: "7/1/2021"
-output: html_document
+title: "Coding Outreach Group Summer Workshop - Visualizing Data in R"
+date: "07/08/2021"
+author: 
+  - name: "**Content creator: William J. Mitchell**"
+output:   
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 2
+    df_print: paged
+    css: !expr here::here("data-visualization-in-r/style.css")
+knit: (function(inputFile, encoding) { 
+      out_dir <- './';
+      rmarkdown::render(inputFile,
+                        encoding=encoding, 
+                        output_file=file.path(dirname(inputFile), out_dir, 'index.html')) })
 ---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+Introduction
+======================================================================================================
+[![](https://img.youtube.com/vi/5VwXuyEMvkg/0.jpg)](http://www.youtube.com/watch?v=5VwXuyEMvkg)
+
+
  0.0 An R Markdown Primer 
 ========================================================
+[![](https://img.youtube.com/vi/2oSE1lw0yPo/0.jpg)](http://www.youtube.com/watch?v=2oSE1lw0yPo)
 
 This is an R Markdown script. Much like a typical R script, it contains code documenting your process, such that any other individual could reproduce your work. However, unlike typical R scripts, R Markdown allows us to narrate the process (much as I'm doing now). The different types of text (narration and code) usually appear in different colors so you can tell the difference; though, what color it appears as for you might differ based on your settings. 
 
@@ -43,6 +67,7 @@ Now that we've got that out of the way, let's get started!
 
 0.5. Workshop Setup 
 ===================================================
+[![](https://img.youtube.com/vi/ZAcMEdByA8I/0.jpg)](http://www.youtube.com/watch?v=ZAcMEdByA8I)
 
 Let's get started by first loading the packages that we're going to need in this workshop. I have them listed below. Those new to R should download all of the packages by running the Package Installation block. Again, as a reminder for those of you new to R Markdown, you can just click the green "play" arrow in the upper right hand corner. If you already have these packages, you can skip this step. If you are unsure if you do, I'd recommend running it anyway; it won't hurt anything:
 ```{r Package Installation}
@@ -77,13 +102,13 @@ library(skimr)
 Next, I'm going to specify the working directory in which I will be storing the figures that we generate. You should specify whatever filepath you'd like.
   
 ```{r Setting Working Directory}
-  Plots.Dir <- "C:/Users/Administrator/Desktop/COG Workshop/Plots/"
+  Plots.Dir <- "C:/Users/Administrator/Google_Drive/COG/cog_summer_workshops_2021/data-visualization-in-r/Plots/"
 ``` 
 
 Lastly, we're going to load our first of three dataframes. This first dataframe contains data from a project I'd recently finished looking at the representational similarity of affect in specific brain regions from both children and adults. Once again, you may need to modify the filepath here to designate where ever you have the dataframe stored:
 
 ```{r Loading First Dataframe}
-   load("C:/Users/Administrator/Desktop/COG Workshop/Dataframes/df1.rda")
+   load("C:/Users/Administrator/Google_Drive/COG/cog_summer_workshops_2021/data-visualization-in-r/Dataframes/df1.rda")
 ```
 
 There are 8 variables in this dataset, and we're primarily going to focus on pattern similarity, captured by Correlation.fz, region of interest, captured by ROI, age group, captured by Age.Group, and stimuli valence, captured by Valence.Pair. The function below (from the psych package) just gives us a brief overview of our variables. 
@@ -96,6 +121,7 @@ Now that setup is done, let's begin!
 
 1.0. Quick Assumption Visualizations
 ====================================================================
+[![](https://img.youtube.com/vi/Pj1JyGk5WIo/0.jpg)](http://www.youtube.com/watch?v=Pj1JyGk5WIo)
 
 One of the first thing any good researcher should do once their data is formatted for analysis is examine whether the data meets the assumptions necessary for the tests they want to run. This often involves visual inspections, and R has a lot of packages to make this simple. 
 
@@ -193,6 +219,7 @@ Frankly, all of this so far is likely elementary to any researchers who've been 
 
 2.0. The Anatomy of a ggplot2 Command
 =====================================================================
+[![](https://img.youtube.com/vi/IoSv3LqeRgo/0.jpg)](http://www.youtube.com/watch?v=IoSv3LqeRgo)
 
 # ----- Plot Creation -----
 
@@ -357,6 +384,7 @@ ggplot(df, aes(x = Age.MOs, y = Correlation.fz)) +
 
 3.0. Exporting Figures
 ======================================================
+[![](https://img.youtube.com/vi/MgbiDmwX9e4/0.jpg)](http://www.youtube.com/watch?v=MgbiDmwX9e4)
 
 It might seem weird focusing a whole lecture on just exporting your figures. Seems like if should be simple enough, right? and it kind of is. That is to say, if we wanted to export the last plot we created, we could simply right click the image and click "Save as". However, I've always found the quality to be lacking using that method. The plot geoms tend to look pixelated, the colors tend to be off, and the proportions are not what they looked to be in the preview. The best work around I have found uses the following format:
 
@@ -382,6 +410,7 @@ We then get a beautiful exported image with no pixelation in a pdf format. Unfor
 
 4.0. Accessibility and Interpretability Options
 ===============================================================================
+[![](https://img.youtube.com/vi/nRgg--HVYzI/0.jpg)](http://www.youtube.com/watch?v=nRgg--HVYzI)
 
 In this module, we're going to build on the same plot we were just working on, so when you see this:
 
@@ -573,11 +602,12 @@ Using elements from plots we've looked at in this section create a plot with the
 
 5.0. Examples of Visualizations w/ Qualitative Independent Variables
 ====================================================================================================
+[![](https://img.youtube.com/vi/4QLY2QVWdZQ/0.jpg)](http://www.youtube.com/watch?v=4QLY2QVWdZQ)
 
 As we move into more complex, results-focused plotting, we're going to switch to a slightly uglier dataset that's better suited for many different analysis types.
 
 ```{r Loading Second Dataframe}
-   load("C:/Users/Administrator/Desktop/COG Workshop/Dataframes/df2.rda")
+   load("C:/Users/Administrator/Google_Drive/COG/cog_summer_workshops_2021/data-visualization-in-r/Dataframes/df2.rda")
 ```
 
 Once again, let's take a look at the variables available to us:
@@ -821,6 +851,7 @@ Let's pretend we wanted to visualize the results of an ANOVA which examined the 
 
 6.0. Examples of Visualizations w/ Quantitative Independent Variables 
 ======================================================================================================
+[![](https://img.youtube.com/vi/NL5HMcqQHVc/0.jpg)](http://www.youtube.com/watch?v=NL5HMcqQHVc)
 
 This section should be quick, because we'd been reviewing some regression examples in earlier sections. In general, I find the range of ease in creating regression visualizations in ggplot2 to be very wide. On one hand, ggplot makes bivariate and multivariate linear regression a breeze to produce. On the other hand, I once spend about a week straight trying to figure out how to reliably produce binary logistic regressions in R as conveniently as I could in SPSS. Hopefully, having all of these templates in one place will save you the trouble in the future, should you ever need to run any of these. 
 
@@ -941,7 +972,7 @@ plot(effect("Emo.Extent.z:Valence", m1, grid = TRUE))
 Alright, now we've gotten through the simple stuff. We're going to move on to binary logistic regression, which honestly isn't very complex either (once you know the solution). In order to do this effectively, we need to pull in the effects package in order to plot the probabilities which are characteristics of a binary logistic regression. In effect this, is going to be very similar to the custom Summary function we used to plot t-tests and ANOVAs. We also need a slightly modified version of the dataframe we've already been using.
 
 ```{r Loading Third Dataframe}
-   load("C:/Users/Administrator/Desktop/COG Workshop/Dataframes/df3.rda")
+   load("C:/Users/Administrator/Google_Drive/COG/cog_summer_workshops_2021/data-visualization-in-r/Dataframes/df3.rda")
 ```
 
 We must first plot the formula of the binary logistic regression that we want to measure. For those who may be unfamiliar with this type of analysis, we use a quantitative predictor to determine a binary outcome. In this case, we are determining whether the intensity of an emotional experience increases the probability of choosing a specific regulation strategy (Either reappraisal or disengagement). 
@@ -1045,3 +1076,9 @@ ggplot(data = m2.e, aes(x = Emo.Extent.z, y = fit, group = Valence, color = Vale
     theme(axis.text.x = element_text(size = 14, color = "Black")) +
     theme(axis.text.y = element_text(size = 14, color = "Black")) 
 ```
+
+
+Conclusion
+======================================================================================================
+[![](https://img.youtube.com/vi/STD5FyPiyYA/0.jpg)](http://www.youtube.com/watch?v=STD5FyPiyYA)
+
