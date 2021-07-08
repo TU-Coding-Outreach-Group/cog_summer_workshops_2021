@@ -30,8 +30,8 @@ cover it in-depth.
 1. Download the R Markdown script from github
 2. Download the datasets for the workshop
 
-All worshop materials are available on the COG Summer Series 2021 Github account
-
+## Workshop Materials
+- [Notebook Viewer](https://tu-coding-outreach-group.github.io/cog_summer_workshops_2021/data-visualization-in-r/index.html)
 
 ## Supplementary
 Supplementary references have been included for R Markdown, common ggplot2 plot types, and popular colors and palettes that R recognizes. 
