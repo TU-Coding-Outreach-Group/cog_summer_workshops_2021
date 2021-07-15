@@ -44,4 +44,24 @@ Representational similarity analysis (RSA) is a newer analytic technique that ca
 ## Additional Resources
 *** UNDER CONSTRUCTION ***
 
+### Literature
+- [Kriegeskorte et al., 2008](https://www.frontiersin.org/articles/10.3389/neuro.06.004.2008/full?utm_source=FWEB&utm_medium=NBLOG&utm_campaign=ECO_10YA_top-research)
+    - The original paper that introduced RSA
+- [Popal et al., 2019](https://academic.oup.com/scan/article/14/11/1243/5693905)
+    - An RSA how-to and why-to guide aimed for the social neuroscience community
+- [Dimsdale-Zucker & Ranganath, 2018](http://hrz-website.s3.amazonaws.com/papers/dimsdale-zucker_ranganath_2018_published-chapter.pdf)
+    - An in-depth RSA guide aimed for memory researchers
+
+### Packages
+- [Dartbrains](https://dartbrains.org/content/RSA.html)
+    - Excellent tutorial. Much of the code in this workshop was adapted from this resource.
+    - Uses the nltools package
+- [PyMVPA](http://www.pymvpa.org/examples/rsa_fmri.html)
+    - Includes searchlight analysis
+- [Brain imaging analysis kit](https://brainiak.org/tutorials/06-rsa/)
+- [NeuroRA](https://neurora.github.io/NeuroRA/)
+
+### Other Workshops
+- [Mark Thornton's RSA workshop](https://colab.research.google.com/drive/1UEtFr-oJisRzl8BmzbNdMZZ7-Of0gLcH?usp=sharing) for Society for Social Neuroscience 2021
+- [MIND 2018 RSA workshop](https://github.com/markallenthornton/mind_2018/tree/master/tutorials/representational_similarity) in R
 
