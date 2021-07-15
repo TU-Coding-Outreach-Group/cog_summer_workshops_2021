@@ -1,13 +1,8 @@
-# Representational Similarity Analysis
-
-## Set up
-
-
 # Coding Outreach Group Summer Workshop
-# Neuroimaging in Python
+# Representational Similarity Analysis
 07/01/2021
 
-__**Content creator:**__ Liz Beard
+__**Content creator:**__ Haroon Popal
 
 **WARNING: THIS WORKSHOP IS UNDER CONSTRUCTION, CHANGES WILL BE MADE LATER**
 
