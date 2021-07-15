@@ -1,0 +1,1 @@
+np.abs(model_df['RC1'].loc[i] - model_df['RC1'].loc[j])

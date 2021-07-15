@@ -1,0 +1,1 @@
+spearmanr(out.data, mrdm_1.data)
