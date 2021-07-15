@@ -1,6 +1,6 @@
 # Coding Outreach Group Summer Workshop
 # Representational Similarity Analysis
-07/01/2021
+07/15/2021
 
 __**Content creator:**__ Haroon Popal
 
