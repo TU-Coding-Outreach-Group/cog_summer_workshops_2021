@@ -1,0 +1,1 @@
+rsync -r /location/on/local/computer cla27562:/file/to/be/copied
